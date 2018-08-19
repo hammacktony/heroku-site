@@ -1,0 +1,16 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<style type="text/css">
+	p {color: black;}
+</style>
+<div class="container">
+    <div class="text-center">
+        <h1>Hmm...something is not right.</h1>
+        <h2>Don't panic, we are fixing it! Please try again later.</h2>
+        <h5>Error details: {{ error }}</h5>
+    </div>
+</div>
+{% endblock %}
+
