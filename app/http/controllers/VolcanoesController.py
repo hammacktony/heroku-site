@@ -1,5 +1,6 @@
 ''' A Module Description '''
 
+
 class VolcanoesController:
     ''' Class Docstring Description '''
 

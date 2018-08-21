@@ -19,7 +19,8 @@ class ComicsController:
         ''' Show Comic News Template '''
 
         srcs = sources.sources  # Comic News Sources
-        jobs = [self.repo.return_data(src) for src in srcs] # retrieves data for each Model in the repository
+        # retrieves data for each Model in the repository
+        jobs = [self.repo.return_data(src) for src in srcs]
         data = {
             'app': Application,
             "criterion": search_criterion.criterion,

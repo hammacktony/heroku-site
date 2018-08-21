@@ -9,9 +9,13 @@ from app.models import (
     Outhousers
 )
 
+
 class ComicsSourcesRepository(object):
 
     def __init__(self):
+        ''' This is the Comic Sources Models repository. A way to have abstract with ComicsController and all the news
+        Models. This is the central lookup for the controller.
+        '''
 
         # Initiate all the Models
         self.bleedingcool = BleedingCool.BleedingCool()
@@ -34,6 +38,13 @@ class ComicsSourcesRepository(object):
         self.outhousers.data = self.outhousers.all()
 
     def _set_source(self, src: str):
+        '''[Retrieves the specific Model's data pertaining to a particular news sources]
+
+        Arguments:
+
+        Returns:
+            [function] -- [A particular ORM generator that houses all the tables data]
+        '''
 
         switcher = {
             'bleedingcool': self.bleedingcool.data,
@@ -48,6 +59,16 @@ class ComicsSourcesRepository(object):
         return switcher.get(src)
 
     def return_data(self, src: str):
+        '''[Returns the data of the ORM generator from _set_source() into a usable format
+        to use in a Jinja2 template]
+
+        Arguments:
+            src {str} -- [Comic News Source]
+
+        Returns:
+            [list] -- [table data]
+        '''
+
         rows = self._set_source(src)
         titles = list()
         links = list()
@@ -55,5 +76,5 @@ class ComicsSourcesRepository(object):
             titles.append(row.title)
             links.append(row.link)
 
-        results = list(zip(titles,links))
+        results = list(zip(titles, links))
         return results

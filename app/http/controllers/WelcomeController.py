@@ -1,5 +1,6 @@
 ''' Welcome The User To Masonite '''
 
+
 class WelcomeController:
     ''' Controller For Welcoming The User '''
 
