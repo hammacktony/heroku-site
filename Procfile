@@ -1,1 +1,1 @@
-web: gunicorn wsgi:application\(\) -b 0.0.0.0:$PORT -w 3
+web: gunicorn -w 3 wsgi:application
