@@ -28,16 +28,27 @@ load_dotenv(find_dotenv())
 |
 '''
 
-DATABASES = {
-    'default': {
-        'driver': os.environ.get('DB_DRIVER'),
-        'host': os.environ.get('DB_HOST'),
-        'database': os.environ.get('DB_DATABASE'),
-        'user': os.environ.get('DB_USERNAME'),
-        'password': os.environ.get('DB_PASSWORD'),
+# DATABASES = {
+#     'postgres': {
+#         'driver': os.environ.get('DB_DRIVER'),
+#         'host': os.environ.get('DB_HOST'),
+#         'database': os.environ.get('DB_DATABASE'),
+#         'user': os.environ.get('DB_USERNAME'),
+#         'password': os.environ.get('DB_PASSWORD'),
+#         'prefix': ''
+#     }
+# }
+
+config = {
+    'postgres': {
+        'driver': 'postgres',
+        'host': 'ec2-54-235-244-185.compute-1.amazonaws.com',
+        'database': 'dfqefn9gk5dgnj',
+        'user': 'pmnkiouizlkvpb',
+        'password': 'e42ed49071fb7526e39693d62def04878ae1ae68058a1b3c6526eca0be120c64',
         'prefix': ''
     }
 }
 
-DB = DatabaseManager(DATABASES)
+DB = DatabaseManager(config)
 Model.set_connection_resolver(DB)
