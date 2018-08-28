@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form action="/post/{{ post.id }}/update" method="POST">
+    {{ csrf_field|safe }}
+​
+    <label for="">Title</label>
+    <input type="text" name="title" value="{{ post.title }}"><br>
+​
+    <label>Body</label>
+    <textarea name="body">{{ post.body }}</textarea><br>
+​
+    <input type="submit" value="Update">
+</form>
+
+<a href="/post/{{ post.id }}/delete"> Delete </a>
+
+{% endblock %}

@@ -8,7 +8,8 @@ WORKDIR /app
 ADD . /app
 
 # Install any needed packages specified in requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install pipenv
+RUN pipenv install
 
 # Declare environment variables
 ENV APP_NAME=Masonite
@@ -29,4 +30,4 @@ ENV STORAGE_DRIVER=disk
 EXPOSE 80 443 5432
 
 # Run app.py when the container launches
-CMD ["gunicorn", "-w", "3", "wsgi:application"]
+CMD ["pipenv", "run", "gunicorn", "-w", "3", "wsgi:application"]

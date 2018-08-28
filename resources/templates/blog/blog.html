@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% if auth() %}
+    <form action="/blog/create" method="POST">
+        {{ csrf_field|safe }}
+​
+        <label> Title </label>
+        <input type="name" name="title"><br>
+​
+        <label> Body </label>
+        <textarea name="body"></textarea>
+​
+        <input type="submit" value="Post!">
+    </form>
+{% else %}
+    <a href="/login">Please Login</a>
+{% endif %}
+{% endblock %}

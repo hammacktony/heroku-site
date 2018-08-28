@@ -71,6 +71,7 @@ PyYAML = "==3.13"
 masonite-cli = "*"
 
 [dev-packages]
+pylint = "*"
 
 [requires]
 python_version = "3.6"
