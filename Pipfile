@@ -69,6 +69,8 @@ Pygments = "==2.2.0"
 PyYAML = "==3.13"
 "psycopg2" = "*"
 masonite-cli = "*"
+python-slugify = "*"
+pymysql = "*"
 
 [dev-packages]
 pylint = "*"

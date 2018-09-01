@@ -1,3 +1,4 @@
+from typing import List
 from app.models import (
     BleedingCool,
     Cbr,
@@ -58,7 +59,7 @@ class ComicsSourcesRepository(object):
         }
         return switcher.get(src)
 
-    def return_data(self, src: str):
+    def return_data(self, src: str) -> List[str]:
         '''[Returns the data of the ORM generator from _set_source() into a usable format
         to use in a Jinja2 template]
 

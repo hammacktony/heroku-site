@@ -1,5 +1,5 @@
 ''' A Module Description '''
-from app.Post import Post
+from app.models.Post import Post
 from masonite.facades.Auth import Auth
 
 
