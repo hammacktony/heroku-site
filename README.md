@@ -17,6 +17,7 @@ My second project is "An Interactive Map of Active Volcanoes Classified by Last 
 ### Prerequisites
 
 Enter database url for scraped content in an .env environment config file.
+Enter Sentry Client ID for Sentry error tracking in an .env environment config file.
 
 ### Installing
 
@@ -40,6 +41,7 @@ echo 'web: gunicorn heroku_site.wsgi:application\(\) -b 0.0.0.0:$PORT -w 3' > Pr
 * [Masonite](https://github.com/MasoniteFramework/masonite) - I want to give a shout out to Joseph Mancusco for creating this amazing framework.
 I came upon this framework while listening to a podcast that was going over python news. It is extremely lightweight and customizable. It is a MVC, unlike Django.
 Also, it is extremely more intuitive.
+* [Sentry](https://docs.sentry.io/) Easy error tracking
 
 ## Authors
 

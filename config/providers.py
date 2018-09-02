@@ -20,6 +20,7 @@ from masonite.providers import (
 
 from app.providers.MiddlewareProvider import MiddlewareProvider
 from app.providers.UserModelProvider import UserModelProvider
+from app.providers.HookProvider import SentryServiceProvider
 
 '''
 |--------------------------------------------------------------------------
@@ -56,6 +57,7 @@ PROVIDERS = [
     HelpersProvider,
 
     # Third Party Providers
+    SentryServiceProvider,
 
     # Application Providers
     UserModelProvider,

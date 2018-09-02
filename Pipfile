@@ -71,6 +71,7 @@ PyYAML = "==3.13"
 masonite-cli = "*"
 python-slugify = "*"
 pymysql = "*"
+raven = "*"
 
 [dev-packages]
 pylint = "*"
