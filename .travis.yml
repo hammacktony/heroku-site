@@ -11,4 +11,8 @@ notifications:
 
 deploy:
   provider: heroku
-  api_key: ea14c5b5-5cca-4102-8e22-ed698d982777
+  api_key:
+    secure: ea14c5b5-5cca-4102-8e22-ed698d982777
+  app: tonus
+  on:
+    repo: felipeluizsoares/rails-test-app
