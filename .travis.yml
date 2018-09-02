@@ -15,4 +15,4 @@ deploy:
     secure: ea14c5b5-5cca-4102-8e22-ed698d982777
   app: tonus
   on:
-    repo: felipeluizsoares/rails-test-app
+    repo: hammacktony/heroku-site
