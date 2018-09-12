@@ -24,7 +24,7 @@ class ComicsController:
         jobs = [self.repo.return_data(src) for src in srcs]
         data = {
             'app': Application,
-            'Auth': Auth(Request),
+            # 'Auth': Auth(Request),
             "criterion": search_criterion.criterion,
             "bleedingcool": jobs[0],
             "cbr": jobs[1],

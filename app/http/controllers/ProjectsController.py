@@ -5,4 +5,4 @@ class ProjectsController:
 
     def show(self, Request, Application):
         ''' Show Projects Template '''
-        return view('projects', {'app': Application})
+        return view('projects/index', {'app': Application})
