@@ -8,8 +8,3 @@ install:
 script: python -m pytest
 notifications:
   slack: theoraclenetwork:gi7xHLDg5L74Lvs2XUxsq8eJ
-
-deploy:
-  provider: heroku
-  api_key:
-    secure: "ea14c5b5-5cca-4102-8e22-ed698d982777"

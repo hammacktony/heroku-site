@@ -72,6 +72,8 @@ masonite-cli = "*"
 python-slugify = "*"
 pymysql = "*"
 raven = "*"
+werkzeug = "*"
+wsgi-lineprof = "*"
 
 [dev-packages]
 pylint = "*"
