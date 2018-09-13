@@ -14,4 +14,6 @@ class ContactController:
         name = Request.input('name')
         from_email = Request.input('email')
         body = Request.input('message')
-        Mail.subject('Contact from Masonite').send_from('extra.promotions.th@gmail.com').to("hammack.tony@gmail.com").send("test")
+        body = body + f'\n\n\n\n, {name.title()}'
+        Mail.subject('User Contact Form from Masonite').send_from(from_email).to("hammack.tony@gmail.com").send(body)
+        return Request.redirect('/')
