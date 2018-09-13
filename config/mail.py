@@ -43,7 +43,7 @@ DRIVER = os.getenv('MAIL_DRIVER', 'smtp')
 DRIVERS = {
     'smtp': {
         'host': os.getenv('MAIL_HOST', 'smtp.mailtrap.io'),
-        'port': os.getenv('MAIL_PORT', 465),
+        'port': os.getenv('MAIL_PORT', '465'),
         'username': os.getenv('MAIL_USERNAME', 'username'),
         'password': os.getenv('MAIL_PASSWORD', 'password'),
         'ssl': True
