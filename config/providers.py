@@ -21,7 +21,7 @@ from masonite.providers import (
 from app.providers.MiddlewareProvider import MiddlewareProvider
 from app.providers.UserModelProvider import UserModelProvider
 from app.providers.HookProvider import SentryServiceProvider
-from app.providers.HelloWorldProvider import HelloWorldProvider
+from app.providers.DashboardBlogProvider import DashboardBlogProvider
 from dashboard.providers import DashboardProvider
 '''
 |--------------------------------------------------------------------------
@@ -66,5 +66,5 @@ PROVIDERS = [
 
     # Dashboard Providers
     DashboardProvider,
-    HelloWorldProvider
+    DashboardBlogProvider
 ]
