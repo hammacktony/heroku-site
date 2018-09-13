@@ -5,6 +5,9 @@ from dashboard.routes import routes as DashboardRoutes
 ROUTES = [
     # Index
     Get().route('/', 'HomeController@show').name('Brother Eye'),
+    # Contact
+    Get().route('/contact', 'ContactController@show').name('Brother Eye'),
+    Post().route('/contact', 'ContactController@store').name('Brother Eye'),
     # Projects
     Get().route('/projects', 'ProjectsController@show').name('Brother Eye'),
     Get().route('/projects/volcanoes', 'VolcanoesController@show').name('Brother Eye'),
