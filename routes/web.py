@@ -1,6 +1,6 @@
 ''' Web Routes '''
 from masonite.routes import Get, Post
-
+from dashboard.routes import routes as DashboardRoutes
 ROUTES = [
     Get().route('/', 'HomeController@show').name('Brother Eye'),
 
@@ -25,4 +25,6 @@ ROUTES = ROUTES + [
     Post().route('/login', 'LoginController@store'),
     Get().route('/register', 'RegisterController@show'),
     Post().route('/register', 'RegisterController@store'),
+    DashboardRoutes(),
+    Get().route('/dashboard/helloworld', 'HelloWorldController@show'),
 ]

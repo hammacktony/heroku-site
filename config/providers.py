@@ -21,7 +21,8 @@ from masonite.providers import (
 from app.providers.MiddlewareProvider import MiddlewareProvider
 from app.providers.UserModelProvider import UserModelProvider
 from app.providers.HookProvider import SentryServiceProvider
-
+from app.providers.HelloWorldProvider import HelloWorldProvider
+from dashboard.providers import DashboardProvider
 '''
 |--------------------------------------------------------------------------
 | Providers List
@@ -62,4 +63,8 @@ PROVIDERS = [
     # Application Providers
     UserModelProvider,
     MiddlewareProvider,
+
+    # Dashboard Providers
+    DashboardProvider,
+    HelloWorldProvider
 ]

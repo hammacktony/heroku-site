@@ -74,6 +74,7 @@ pymysql = "*"
 raven = "*"
 werkzeug = "*"
 wsgi-lineprof = "*"
+masonite-dashboard = "*"
 
 [dev-packages]
 pylint = "*"

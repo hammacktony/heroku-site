@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e094dd4d9b5b08eeb3f27ac8df4566f7e836d37097359811a1069e2b0aabc638"
+            "sha256": "02e3c4bb3e6fd570987eae0dc9f89c0670583209563ec690daff0429b60fead2"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -362,6 +362,13 @@
             ],
             "index": "pypi",
             "version": "==2.0.11"
+        },
+        "masonite-dashboard": {
+            "hashes": [
+                "sha256:cdf66cbe37a0af46fdb647eb12ad8ad67f2e6c66d619deb6fb001789ed5f7ccf"
+            ],
+            "index": "pypi",
+            "version": "==0.1.3"
         },
         "masonite-entry": {
             "hashes": [
