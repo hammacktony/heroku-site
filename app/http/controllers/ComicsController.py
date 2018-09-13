@@ -1,5 +1,5 @@
 ''' A Module Description '''
-from masonite.facades.Auth import Auth
+# from masonite.facades.Auth import Auth
 
 from mods.scrape import search_criterion
 from mods.scrape import sources
@@ -24,7 +24,6 @@ class ComicsController:
         jobs = [self.repo.return_data(src) for src in srcs]
         data = {
             'app': Application,
-            'Auth': Auth(Request),
             "criterion": search_criterion.criterion,
             "bleedingcool": jobs[0],
             "cbr": jobs[1],

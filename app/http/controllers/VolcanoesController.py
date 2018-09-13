@@ -6,4 +6,4 @@ class VolcanoesController:
 
     def show(self, Application):
         ''' Show Home Template '''
-        return view('projects/volcano', {'app': Application})
+        return view('projects/volcanoes', {'app': Application})

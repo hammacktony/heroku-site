@@ -12,3 +12,4 @@ notifications:
 deploy:
   provider: heroku
   api_key: "ea14c5b5-5cca-4102-8e22-ed698d982777"
+  slack: theoraclenetwork:gi7xHLDg5L74Lvs2XUxsq8eJ
