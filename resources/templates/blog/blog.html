@@ -1,19 +1,32 @@
-{% extends "layout.html" %}
+{% extends 'dashboard/base.html' %}
 {% block content %}
 
-{% if auth() %}
-    <form action="/blog/create" method="POST">
-        {{ csrf_field|safe }}
-​
-        <label> Title </label>
-        <input type="name" name="title"><br>
-​
-        <label> Body </label>
-        <textarea name="body"></textarea>
-​
-        <input type="submit" value="Post!">
+
+    <div class="col-xs-9">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h5> Blogging Engine </h5><hr>
+            <p>
+              Create Blog
+            </p>
+            
+      <form action="/blog/create" method="POST">
+        <div class="form-group">
+            <label for="">Title</label>
+            <input type="text" name="title" class="form-control">
+        </div>
+        
+        <div class="form-group">
+            <label for="">Body</label>
+            <input type="text" name="body" class="form-control">
+        </div>
+
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-success"> Post! </button>
+        </div>
     </form>
-{% else %}
-    <a href="/login">Please Login</a>
-{% endif %}
+    </div>
+    </div>
+    </div>
+
 {% endblock %}

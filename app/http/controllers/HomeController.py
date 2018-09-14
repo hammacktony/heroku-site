@@ -6,4 +6,4 @@ class HomeController:
 
     def show(self, Request, Application):
         ''' Show Index Template '''
-        return view('index', {'app': Application, 'Auth': Auth(Request)})
+        return view('index', {'app': Application})

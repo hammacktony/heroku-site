@@ -11,7 +11,7 @@ from masonite.environment import LoadEnvironment
 |
 '''
 
-LoadEnvironment()
+LoadEnvironment(override=True)
 
 def app(environ, start_response):
     ''' The WSGI Application Server '''

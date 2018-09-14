@@ -1,31 +1,30 @@
-<nav class="navbar navbar-inverse navbar-toggleable-md"' role="navigation">
-        <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">Brother Eye</a>
-          </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav navbar-right mr-auto">
-              <li><a href="/">Home</a></li>
-              <li><a href="/volcanoes">Volcanoes</a></li>
-               <li><a href="/comics">Comics</a></li>
-                {% if Auth.user() %}
-                <li>
-                    <a href="/logout">Logout</a>
-                </li>
-                {% else %}
-                <li>
-                    <a href="/login">Login</a>
-                </li>
-                {% endif %}
-            </ul>
+<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="/">Tony Hammack</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/comics">Comics</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="/blog">Blog</a>
+            </li> -->
+          </ul>
         </div>
-        <!-- /.navbar-collapse -->
-    <!-- /.container -->
-</nav>
+      </div>
+    </nav>
