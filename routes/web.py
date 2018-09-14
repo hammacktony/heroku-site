@@ -10,7 +10,7 @@ ROUTES = [
     Post().route('/contact', 'ContactController@store'),
     # Projects
     Get().route('/projects', 'ProjectsController@show'),
-    Get().route('/projects/volcanoes', 'VolcanoesController@show'),
+    Get().route('/volcanoes', 'VolcanoesController@show'),
     # Comics
     Get().route('/comics', 'ComicsController@show'),
     # Dashboard
