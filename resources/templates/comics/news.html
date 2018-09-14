@@ -64,6 +64,19 @@
    border-bottom: 5px solid #000;
    display: inline-block;
    }
+
+   /*Desktop*/
+    @media screen and (max-width:990px) {
+        #form {
+                display: none;
+            }
+        iframe {
+            height: 350px;
+            width: 80%;
+            resize: both;
+            overflow: auto;
+            }
+    }
 </style>
 <div class="container-fluid">
 <div class="row">
@@ -269,6 +282,10 @@
    {% endfor %}
 </div>
 {% endif %}
+</div>
+</div>
+</div>
+
 
 <!-- Modal js -->
 <script type="text/javascript">
