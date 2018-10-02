@@ -114,3 +114,7 @@ venv.bak/
 *.todo
 todo
 Todo
+
+# Upload files
+storage/uploads/*.jpg
+storage/uploads/*.png
