@@ -1,0 +1,83 @@
+<div class="profile" itemscope itemtype="http://schema.org/Person">
+
+    <style type="text/css">
+        .avatar {
+            vertical-align: middle;
+            max-width: 110px;
+            border-radius: 50%;
+        }
+        .profile {
+            border-left: 1px solid #f2f2f2;
+            padding-left: 20px;
+            padding-bottom: 10px;
+        }
+    </style>
+
+    <div class="author__avatar">
+        {% if user.website %}
+        <a href="{{ user.website }}">
+            <img src="{{ static('s3', user.image) }}" class="avatar" alt="{{ user.website }}" itemprop="image">
+        </a>
+        {% else %}
+        <img src="{{ static('s3', user.image) }}" class="avatar" alt="{{ user.website }}" itemprop="image"> {% endif %}
+    </div>
+
+    <div class="author__content">
+        <h3 class="author__name" itemprop="name">{{ user.name }}</h3> {% if user.bio %}
+        <p class="author__bio" itemprop="description">
+            {{ user.bio }}
+        </p>
+        {% endif %}
+    </div>
+
+    <div class="author__urls-wrapper">
+        <ul class="fa-ul" >
+
+            {% if user.website %}
+            <li>
+                <a href="http://{{ user.website }}" itemprop="url">
+                    <i class="fa fa-li fa-fw fa-link" aria-hidden="true"></i> {{ user.website }}
+                </a>
+            </li>
+            {% endif %} {% if user.email %}
+            <li>
+                <a href="mailto:{{ user.email }}">
+                    <meta itemprop="email" content="{{ user.email }}" />
+                    <i class="fa fa-li fa-fw fa-envelope-square" aria-hidden="true"></i> {{ user.email }}
+                </a>
+            </li>
+            {% endif %} {% if user.twitter %}
+            <li>
+                <a href="https://twitter.com/{{ user.twitter }}" itemprop="sameAs">
+                    <i class="fa fa-li fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+                </a>
+            </li>
+            {% endif %} {% if user.facebook %}
+            <li>
+                <a href="https://www.facebook.com/{{ user.facebook }}" itemprop="sameAs">
+                    <i class="fa fa-li fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook
+                </a>
+            </li>
+            {% endif %} {% if user.linkedin %}
+            <li>
+                <a href="https://www.linkedin.com/in/{{ user.linkedin }}" itemprop="sameAs">
+                    <i class="fa fa-li fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn
+                </a>
+            </li>
+            {% endif %} {% if user.github %}
+            <li>
+                <a href="https://github.com/{{ user.github }}" itemprop="sameAs">
+                    <i class="fa fa-li fa-fw fa-github" aria-hidden="true"></i> GitHub
+                </a>
+            </li>
+            {% endif %} {% if user.gitlab %}
+            <li>
+                <a href="https://gitlab.com/{{ user.gitlab }}" itemprop="sameAs">
+                    <i class="fa fa-li fa-fw fa-gitlab" aria-hidden="true"></i> GitLab
+                </a>
+            </li>
+            {% endif %}
+
+        </ul>
+    </div>
+</div>

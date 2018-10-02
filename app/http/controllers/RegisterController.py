@@ -1,4 +1,4 @@
-''' A Module Description '''
+''' Register new users '''
 from masonite.facades.Auth import Auth
 from config import auth
 import bcrypt
@@ -25,11 +25,11 @@ class RegisterController(object):
             name=Request.input('name'),
             password=password,
             email=Request.input('email'),
+            is_admin=1
         )
 
-        # login the user
-        # redirect to the homepage
+        # login the user and redirect to the homepage if user cannot login
         if Auth(Request).login(Request.input(auth.AUTH['model'].__auth__), Request.input('password')):
-            return Request.redirect('/')
+            return Request.redirect('/home')
 
         return Request.redirect('/register')

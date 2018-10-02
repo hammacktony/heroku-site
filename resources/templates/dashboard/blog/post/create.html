@@ -1,0 +1,32 @@
+{% extends "dashboard/base.html" %}
+{% block content %}
+<div class="col-xs-9">
+<form action='/dashboard/blog/post/create' method="POST" enctype="multipart/form-data">
+    {{ csrf_field|safe }}
+
+        <div class="form-group">
+          <label>Title</label>
+          <input type="name" name="title" class="form-control" required pattern=".*\S+.*" placeholder="Some Title...">
+        </div>
+        <div class="form-group">
+          <label>Featured Image</label>
+          <input type="file" name="file_upload">
+        </div>        
+        <div class="form-group">
+          <label>Body</label>
+        </br>
+          <textarea name="body" class="form-control" rows="25" placeholder="Some Text...."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <input name="category" placeholder="Some Category..."></input>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a class="btn btn-primary" href="/dashboard/blog/main" role="button">Cancel</a>
+      </form>        
+    </form>
+    </div>
+
+
+{% endblock %}

@@ -17,6 +17,6 @@ class LoadUserMiddleware:
         ''' Run This Middleware After The Route Executes '''
         pass
 
-    def load_user(self, request):
+    def load_user(self, Request):
         ''' Load user into the request '''
-        request.set_user(Auth(request).user())
+        Request.set_user(Auth(Request).user())

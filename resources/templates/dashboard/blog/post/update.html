@@ -1,0 +1,26 @@
+{% extends "dashboard/base.html" %}
+{% block content %}
+<div class="col-xs-9">
+    <form action="/dashboard/blog/post/{{ post.slug }}/update" method="POST">
+        {{ csrf_field|safe }}
+        ​ <div class="form-group">
+            <label for="">Title</label>
+            <input type="text" class="form-control" name="title" required pattern=".*\S+.*" value="{{ post.title }}"><br>
+        </div>
+        ​ <div class="form-group">
+            <label>Body</label>
+            <textarea name="body" class="form-control" rows="25">{{ post.body }}</textarea><br>
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <input name="category" value="{{ post.category }}"></input>
+        </div>
+        ​<div class="form-group">
+            <a href="/dashboard/blog/post/preview/{{ post.slug }}" class="btn btn-primary" role="button" target="_blank" name="preview">Preview</a>
+            <button type="update" class="btn btn-primary" name="update">Update</button>
+            <a class="btn btn-primary" href="/dashboard/blog/main" role="button">Cancel</a>
+        </div>
+    </form>
+
+</div>
+{% endblock %}

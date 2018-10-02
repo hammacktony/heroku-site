@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('/img/nightlife1.png')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Author: {{ author.name }}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Post Content -->
+<article>
+  <div class="col-lg-9 col-md-10 mx-auto">
+  <div class="post-preview">
+    {% for post in posts|reverse %}
+    <a href="/blog/post/{{ post.slug }}">
+      <h2 class="post-title post">
+        {{ post.title }}
+    </a>
+    </h2>
+      {# Display when post was either created or last updated #}
+          {% if  post.created_at.to_formatted_date_string() ==  post.updated_at.to_formatted_date_string() %}
+              <p class="post-meta">Posted by
+                  <a href="/blog/author/{{ author.user_name }}">{{ author.name }}</a> on 
+                {{ post.created_at.to_formatted_date_string() }}</p>
+          {% else %}
+            <p class="post-meta">Updated by
+                  <a href="/blog/author/{{ author.user_name }}">{{ author.name}}</a> on 
+                {{ post.updated_at.to_formatted_date_string() }}</p>
+          {% endif %}
+    <hr>
+    {% endfor %}
+  </div>
+
+</article>
+
+
+{% endblock %}

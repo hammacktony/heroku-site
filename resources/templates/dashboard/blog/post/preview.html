@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{ static('s3', post.image) }}')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          {# Alert that this a preview of the article #}
+<div class="alert alert-primary" role="alert">
+  This is a preview of the post.
+</div>
+          <h1>{{ post.title }}</h1>
+          {# Display when post was either created or last updated #}
+          {% if  post.created_at.to_formatted_date_string() ==  post.updated_at.to_formatted_date_string() %}
+              <p class="post-meta">Posted by
+                  <a style="color: white;" href="/blog/author/{{ author.find(post.author_id).user_name }}">{{ author.find(post.author_id).name }}</a> on 
+                {{ post.created_at.to_formatted_date_string() }}</p>
+          {% else %}
+            <p class="post-meta">Updated by
+                 <a style="color: white;" href="/blog/author/{{ author.find(post.author_id).user_name }}">{{ author.find(post.author_id).name }}</a> on 
+                {{ post.updated_at.to_formatted_date_string() }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+          
+          <!-- Displays post -->
+          {{ post.body|safe }}
+        
+          <!-- Displays Posts Categories if there are any -->
+          {% if post.category %}
+            {% set categories = post.category.split(',') %}
+            {% for cat in categories %}
+              <div class="alert alert-dark" role="alert" style="display: inline-block;">
+                <a href="/blog/category/{{ cat }}">{{ cat }}</a>
+              </div>
+            {% endfor %}
+          {% endif %}
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+{% endblock %}

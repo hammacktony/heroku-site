@@ -1,0 +1,16 @@
+<div class="recent">
+    <style type="text/css">
+        .recent {
+            margin-top: 15px;
+            border-left: 1px solid #f2f2f2;
+            padding-left: 20px;
+        }
+    </style>
+    <h3>
+      Recent Posts
+   </h3> {% for post in recent %}
+    <a href="/blog/post/{{ post.slug }}">
+   {{ post.title }}
+   </a>
+    <hr> {% endfor %}
+</div>
