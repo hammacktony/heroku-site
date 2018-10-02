@@ -1,6 +1,6 @@
 ''' A HookProvider Service Provider '''
 from masonite.provider import ServiceProvider
-from ..hooks.Sentry import SentryHook
+from app.hooks.Sentry import SentryHook
 
 class SentryServiceProvider(ServiceProvider):
     def register(self):
