@@ -12,7 +12,7 @@ ROUTES = [
     Get().route('/projects', 'ProjectsController@show'),
     Get().route('/volcanoes', 'VolcanoesController@show'),
     # Comics
-    # Get().route('/comics', 'ComicsController@show'),
+    Get().route('/comics', 'ComicsController@show'),
     
     # Blog
     RouteGroup([

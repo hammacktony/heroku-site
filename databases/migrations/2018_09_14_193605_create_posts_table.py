@@ -7,14 +7,14 @@ class CreatePostsTable(Migration):
         """
         Run the migrations.
         """
-        with self.schema.create('posts') as table:
+        with self.schema.connection('connection2').create('posts') as table:
             table.increments('id')
             table.string('slug')
             table.string('title')
 
             table.string('image').nullable()
             table.string('category').nullable()
-            
+
             table.integer('author_id').unsigned()
             table.foreign('author_id').references('id').on('users')
 
@@ -27,4 +27,4 @@ class CreatePostsTable(Migration):
         """
         Revert the migrations.
         """
-        self.schema.drop('posts')
+        self.schema.connection('connection2').drop('posts')

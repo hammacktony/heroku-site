@@ -7,7 +7,7 @@ class CreateUsersTable(Migration):
         """
         Run the migrations.
         """
-        with self.schema.create('users') as table:
+        with self.schema.connection('connection2').create('users') as table:
             table.increments('id')
             table.string('name')
             table.string('email').unique()
@@ -29,4 +29,4 @@ class CreateUsersTable(Migration):
         """
         Revert the migrations.
         """
-        self.schema.drop('users')
+        self.schema.connection('connection2').drop('users')

@@ -1,12 +1,20 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="jumbotron">
-    <div class="text-center">
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{ static('s3', 'blog/img/glitch.png') }}')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
         <h1>Page Not Found error: 404</h1>
         <h2>Sorry, that page doesn't exist.</h2>
-        <a href="/">Want to go home  instead?</a>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+</header>
 {% endblock %}
+
 

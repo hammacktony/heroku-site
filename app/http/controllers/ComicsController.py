@@ -1,37 +1,39 @@
 ''' A Module Description '''
 # from masonite.facades.Auth import Auth
 
-from mods.scrape import search_criterion
-from mods.scrape import sources
-from app.repositories.ComicsSourcesRepository import ComicsSourcesRepository
-
+from mods.scrape.search_criterion import criterion
+from mods.scrape.sources import sources
+from app.models import (
+    BleedingCool,
+    Cbr,
+    ComicBook,
+    ComicsBeat,
+    Ign,
+    Nerdist,
+    Newsarama,
+    Outhousers
+)
 
 class ComicsController:
     ''' Controller for Comic News Template'''
 
     def __init__(self):
-        """Due to the amount of news sites, I set up a repository of the all the classes that will be need. 
-
-        Initializes this repository.
-        """
-        self.repo = ComicsSourcesRepository()
+        pass
 
     def show(self, Application, Request):
         ''' Show Comic News Template '''
 
-        srcs = sources.sources  # Comic News Sources
         # retrieves data for each Model in the repository
-        jobs = [self.repo.return_data(src) for src in srcs]
         data = {
             'app': Application,
-            "criterion": search_criterion.criterion,
-            "bleedingcool": jobs[0],
-            "cbr": jobs[1],
-            "comicbook": jobs[2],
-            "comicsbeat": jobs[3],
-            "ign": jobs[4],
-            "nerdist": jobs[5],
-            "newsarama": jobs[6],
-            "outhousers": jobs[7]
+            "criterion": criterion,
+            "bleedingcool": BleedingCool.select('title', 'link').get(),
+            "cbr": Cbr.select('title', 'link').get(),
+            "comicbook": ComicBook.select('title', 'link').get(),
+            "comicsbeat": ComicsBeat.select('title', 'link').get(),
+            "ign": Ign.select('title', 'link').get(),
+            "nerdist": Nerdist.select('title', 'link').get(),
+            "newsarama": Newsarama.select('title', 'link').get(),
+            "outhousers": Outhousers.select('title', 'link').get()
         }
         return view('comics/news', data)

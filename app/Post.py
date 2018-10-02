@@ -6,6 +6,8 @@ from app.User import User
 
 
 class Post(Model):
+    __connection__ = 'connection_2'
+
     __table__ = 'posts'
 
     __fillable__ = ['title',

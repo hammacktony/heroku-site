@@ -29,14 +29,22 @@ load_dotenv(find_dotenv())
 '''
 
 DATABASES = {
-    'postgres': {
-        'driver': os.environ.get('DB_DRIVER'),
-        'host': os.environ.get('DB_HOST'),
-        'database': os.environ.get('DB_DATABASE'),
-        'user': os.environ.get('DB_USERNAME'),
-        'password': os.environ.get('DB_PASSWORD'),
-        'prefix': ''
-    }
+	'connection_1': {
+       'driver': os.environ.get('CONNECTION1_DB_DRIVER'),
+       'host': os.environ.get('CONNECTION1_DB_HOST'),
+       'database': os.environ.get('CONNECTION1_DB_DATABASE'),
+       'user': os.environ.get('CONNECTION1_DB_USERNAME'),
+       'password': os.environ.get('CONNECTION1_DB_PASSWORD'),
+       'prefix': ''
+   },
+   'connection_2': {
+       'driver': os.environ.get('CONNECTION2_DB_DRIVER'),
+       'host': os.environ.get('CONNECTION2_DB_HOST'),
+       'database': os.environ.get('CONNECTION2_DB_DATABASE'),
+       'user': os.environ.get('CONNECTION2_DB_USERNAME'),
+       'password': os.environ.get('CONNECTION2_DB_PASSWORD'),
+       'prefix': ''
+   },
 }
 
 DB = DatabaseManager(DATABASES)

@@ -11,7 +11,7 @@ from app.models import (
 )
 
 
-class ComicsSourcesRepository(object):
+class ComicsRepository(object):
 
     def __init__(self):
         ''' This is the Comic Sources Models repository. A way to have abstract with ComicsController and all the news
@@ -19,14 +19,14 @@ class ComicsSourcesRepository(object):
         '''
 
         # Initiate all the Models
-        self.bleedingcool = BleedingCool.BleedingCool()
-        self.cbr = Cbr.Cbr()
-        self.comicbook = ComicBook.ComicBook()
-        self.comicsbeat = ComicsBeat.ComicsBeat()
-        self.ign = Ign.Ign()
-        self.nerdist = Nerdist.Nerdist()
-        self.newsarama = Newsarama.Newsarama()
-        self.outhousers = Outhousers.Outhousers()
+        self.bleedingcool = BleedingCool()
+        self.cbr = Cbr()
+        self.comicbook = ComicBook()
+        self.comicsbeat = ComicsBeat()
+        self.ign = Ign()
+        self.nerdist = Nerdist()
+        self.newsarama = Newsarama()
+        self.outhousers = Outhousers()
 
         # Get all of model data
         self.bleedingcool.data = self.bleedingcool.all()
@@ -40,9 +40,7 @@ class ComicsSourcesRepository(object):
 
     def _set_source(self, src: str):
         '''[Retrieves the specific Model's data pertaining to a particular news sources]
-
         Arguments:
-
         Returns:
             [function] -- [A particular ORM generator that houses all the tables data]
         '''
@@ -62,10 +60,8 @@ class ComicsSourcesRepository(object):
     def return_data(self, src: str) -> List[str]:
         '''[Returns the data of the ORM generator from _set_source() into a usable format
         to use in a Jinja2 template]
-
         Arguments:
             src {str} -- [Comic News Source]
-
         Returns:
             [list] -- [table data]
         '''
@@ -77,5 +73,4 @@ class ComicsSourcesRepository(object):
             titles.append(row.title)
             links.append(row.link)
 
-        results = list(zip(titles, links))
-        return results
+        return list(zip(titles, links))

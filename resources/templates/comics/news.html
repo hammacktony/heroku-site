@@ -137,9 +137,9 @@
         Bleeding Cool
     </h2>
         {% for post in bleedingcool %}
-        <a href="{{ post[1] }}">
+        <a href="{{ post.link }}">
             <h3 class="post-subtitle">
-                {{ post[0] }}
+                {{ post.title }}
             </h3>
         </a>
         <!-- <p class="post-meta">Posted by
@@ -156,9 +156,9 @@
         CBR
     </h2>
     {% for post in cbr %}
-    <a href="{{ post[1] }}">
+    <a href="{{ post.link }}">
         <h3 class="post-subtitle">
-            {{ post[0] }}
+            {{ post.title }}
         </h3>
     </a>
     <!-- <p class="post-meta">Posted by
@@ -175,9 +175,9 @@
         Comicbook.com
     </h2>
     {% for post in comicbook %}
-    <a href="{{ post[1] }}">
+    <a href="{{ post.link }}">
         <h3 class="post-subtitle">
-            {{ post[0] }}
+            {{ post.title }}
         </h3>
     </a>
     <!-- <p class="post-meta">Posted by
@@ -194,9 +194,9 @@
       Comicsbeat
    </h2>
    {% for post in comicsbeat %}
-   <a href="{{ post[1] }}">
+   <a href="{{ post.link }}">
       <h3 class="post-subtitle">
-         {{ post[0] }}
+         {{ post.title }}
       </h3>
    </a>
    <!-- <p class="post-meta">Posted by
@@ -213,8 +213,8 @@
       IGN
    </h2>
    {% for post in ign %}
-   <a href="{{ post[1] }}">
-      <h3 class="post-subtitle">
+   <a href="{{ post.link }}">
+      <h3 class="post.title">
          {{ post[0] }}
       </h3>
    </a>
@@ -232,9 +232,9 @@
       Nerdist
    </h2>
    {% for post in nerdist %}
-   <a href="{{ post[1] }}">
+   <a href="{{ post.link }}">
       <h3 class="post-subtitle">
-         {{ post[0] }}
+         {{ post.title }}
       </h3>
    </a>
    <!-- <p class="post-meta">Posted by
@@ -251,9 +251,9 @@
       Newsarama
    </h2>
    {% for post in newsarama %}
-   <a href="{{ post[1] }}">
+   <a href="{{ post.link }}">
       <h3 class="post-subtitle">
-         {{ post[0] }}
+         {{ post.title }}
       </h3>
    </a>
    <!-- <p class="post-meta">Posted by
@@ -270,9 +270,9 @@
       The Outhousers
    </h2>
    {% for post in outhousers %}
-   <a href="{{ post[1] }}">
+   <a href="{{ post.link }}">
       <h3 class="post-subtitle">
-         {{ post[0] }}
+         {{ post.title }}
       </h3>
    </a>
    <!-- <p class="post-meta">Posted by
