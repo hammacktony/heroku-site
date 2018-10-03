@@ -29,7 +29,7 @@ load_dotenv(find_dotenv())
 '''
 
 DATABASES = {
-	'connection_1': {
+	'default': {
        'driver': os.environ.get('CONNECTION1_DB_DRIVER'),
        'host': os.environ.get('CONNECTION1_DB_HOST'),
        'database': os.environ.get('CONNECTION1_DB_DATABASE'),

@@ -4,6 +4,6 @@ from config.database import Model
 
 class Ign(Model):
 
-    __connection__ = 'connection_1'
+    __connection__ = 'default'
 
     __table__ = "ign"

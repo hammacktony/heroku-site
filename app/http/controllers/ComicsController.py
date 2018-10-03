@@ -25,7 +25,6 @@ class ComicsController:
 
         # retrieves data for each Model in the repository
         data = {
-            'app': Application,
             "criterion": criterion,
             "bleedingcool": BleedingCool.select('title', 'link').get(),
             "cbr": Cbr.select('title', 'link').get(),
