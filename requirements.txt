@@ -43,6 +43,7 @@ pendulum==1.5.1
 pluggy==0.6.0
 psutil==5.4.6
 psycopg2==2.7.5
+psycopg2-binary==2.7.5
 py==1.6.0
 pyaml==16.12.2
 pycodestyle==2.4.0
