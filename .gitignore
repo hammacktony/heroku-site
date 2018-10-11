@@ -118,3 +118,6 @@ Todo
 # Upload files
 storage/uploads/*.jpg
 storage/uploads/*.png
+
+# Cached files
+bootstrap/cache/

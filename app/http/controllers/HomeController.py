@@ -6,4 +6,4 @@ class HomeController:
 
     def show(self, Request, Application):
         ''' Show Index Template '''
-        return view('index', {'app': Application})
+        return view('index', {'app': Application}).cache_for(1, 'month')

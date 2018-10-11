@@ -7,7 +7,7 @@ class ContactController:
 
     def show(self, Request, Application):
         ''' Show Contact Template '''
-        return view('contact', {'app': Application})
+        return view('contact', {'app': Application}).cache_for(1, 'month')
 
     def store(self, Request, Mail):
         ''' Show Contact Template '''
