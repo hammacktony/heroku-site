@@ -85,6 +85,7 @@ Unidecode = "==1.0.22"
 "validator.py" = "==1.2.5"
 Werkzeug = "==0.14.1"
 masonite = "*"
+mypy = "*"
 
 [dev-packages]
 
