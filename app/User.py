@@ -7,6 +7,6 @@ class User(Model):
 
     __connection__ = 'connection_2'
     __fillable__ = ['name', 'email', 'password', 'is_admin', 'image', 'bio',
-                    'website', 'facebook', 'twitter', 'github', 'gitlab', ]
+                    'website', 'facebook', 'linkedin', 'twitter', 'github', 'gitlab', ]
 
     __auth__ = 'email'

@@ -28,6 +28,7 @@ class ProfileController(object):
 		# Update user info
 		user[0].name = remove_whitespaces(Request.input('name'))
 		user[0].website = remove_whitespaces(Request.input('website'))
+		user[0].linkedin = remove_whitespaces(Request.input('linkedin'))
 		user[0].twitter = remove_whitespaces(Request.input('twitter'))
 		user[0].facebook = remove_whitespaces(Request.input('facebook'))
 		user[0].github = remove_whitespaces(Request.input('github'))
