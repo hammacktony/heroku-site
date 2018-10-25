@@ -35,5 +35,4 @@ class ComicsController:
             "newsarama": Newsarama.select('title', 'link').get(),
             "outhousers": Outhousers.select('title', 'link').get()
         }
-        # return view('comics/news', data).cache_for(15, 'minutes')
         return view('comics/news', data).cache_for(15, 'minutes')
