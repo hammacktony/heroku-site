@@ -45,9 +45,13 @@
           <!-- Displays Posts Categories if there are any -->
           {% if post.category %}
             {% set categories = post.category.split(',') %}
-            {% for cat in categories %}
+            {% for category in categories %}
+              {# Making slug for category #}
+              {% set cat_slug = category.lstrip() %}
+              {% set cat_slug = cat_slug.rstrip() %}
+              {% set cat_slug = cat_slug.replace(' ', '-').lower() %}
               <div class="alert alert-dark" role="alert" style="display: inline-block;">
-                <a href="/blog/category/{{ cat }}">{{ cat }}</a>
+                <a href="/blog/category/{{ cat_slug }}">{{ category }}</a>
               </div>
             {% endfor %}
           {% endif %}

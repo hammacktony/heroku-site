@@ -19,7 +19,11 @@
         </div>
         <div class="form-group">
           <label>Category</label>
-          <input name="category" placeholder="Some Category..."></input>
+          <div class="invalid-tooltip">
+            No commas in category names
+          </div>
+          <br>
+          <input name="category" pattern="^[^,]*$" placeholder="Some Category..."></input>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

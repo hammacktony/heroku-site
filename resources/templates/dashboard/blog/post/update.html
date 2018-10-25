@@ -13,7 +13,11 @@
         </div>
         <div class="form-group">
           <label>Category</label>
-          <input name="category" value="{{ post.category }}"></input>
+          <div class="invalid-tooltip">
+            No commas in category names
+          </div>
+          <br>
+          <input name="category" pattern="^[^,]*$" value="{{ post.category }}"></input>
         </div>
         ​<div class="form-group">
             <a href="/dashboard/blog/post/preview/{{ post.slug }}" class="btn btn-primary" role="button" target="_blank" name="preview">Preview</a>
