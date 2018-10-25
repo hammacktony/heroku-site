@@ -20,13 +20,23 @@
     <div id="intro">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
-            <p>I am an INTJ that enjoys drinking coffee, watching movies, and being active. As an avid reader and podcast listener, I love to embrace the challenge of learning new things that are outside my realm of knowledge. I believe that human life has nearly unlimited potential, and the only key to unlock it is through knowledge and grit. My goal is to use my resources and talents to affect change in this world, and help everyone reach their potential.
+          <div class="col-lg-8 col-md-9 mx-auto ">
+            <p>As an avid reader and podcast listener, I love to embrace the challenge of learning new things that are outside my realm of knowledge. I believe that human life has nearly unlimited potential, and the only key to unlock it is through knowledge and grit. My goal is to use my resources and talents to affect change in this world, and help everyone reach their potential.
             </p>
   
             <p>I like to dabble and tinker with multiple technologies with the goal of solving intriguing problems and puzzles. Stay tuned for more projects, and if you have any more questions, feel free to contact me.</p>
           </div>    
-        </div><!--/.row -->
-      </div><!--/.container -->
+
+          {# Sidebar #}
+          <div class="col-lg-4 col-md-3 mx-auto">
+
+              {# About Me #}
+              <div class="col-md-12">
+                {% include "profile.html" %}
+              </div>
+
+          </div>
+      </div><!--/.row -->
+    </div><!--/.container -->
     </div><!--/ #intro -->
 {% endblock %}
