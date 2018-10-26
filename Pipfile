@@ -86,6 +86,7 @@ Unidecode = "==1.0.22"
 Werkzeug = "==0.14.1"
 masonite = "*"
 mypy = "*"
+webtest = "*"
 
 [dev-packages]
 
