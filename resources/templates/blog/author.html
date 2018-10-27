@@ -18,8 +18,8 @@
 <!-- Post Content -->
 <article>
   <div class="col-lg-9 col-md-10 mx-auto">
-  <div class="post-preview">
-    {% for post in posts|reverse %}
+    <div class="post-preview" style="text-align: center">
+      {% for post in posts|reverse %}
     <a href="/blog/post/{{ post.slug }}">
       <h2 class="post-title post">
         {{ post.title }}
