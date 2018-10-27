@@ -116,8 +116,8 @@ todo
 Todo
 
 # Upload files
-storage/uploads/*.jpg
-storage/uploads/*.png
+*.jpg
+*.png
 
 # Cached files
 bootstrap/cache/
