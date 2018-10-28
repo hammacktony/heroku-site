@@ -1,3 +1,4 @@
+''' Create table for user info '''
 from orator.migrations import Migration
 
 
@@ -17,6 +18,7 @@ class CreateUsersTable(Migration):
             table.timestamps()
 
             # User profile information
+            table.string('user_name').unique()
             table.string('bio', 10485760).nullable()
             table.string('facebook').nullable()
             table.string('twitter').nullable()
@@ -24,6 +26,9 @@ class CreateUsersTable(Migration):
             table.string('gitlab').nullable()
             table.string('linkedin').nullable()
             table.string('website').nullable()
+
+            # User Profile Photo
+            table.string('image').nullable()
 
     def down(self):
         """
