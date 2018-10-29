@@ -4,13 +4,14 @@ from masonite.provider import ServiceProvider
 # Render Engine
 from mistune import Markdown
 
+
 class RenderEngineProvider(ServiceProvider):
 
-	wsgi = False
+    wsgi = False
 
-	def register(self):
-		''' Registers the Html Render Engine Into The Service Container '''
-		self.app.bind('RenderEngine', Markdown())
+    def register(self):
+        ''' Registers the Html Render Engine Into The Service Container '''
+        self.app.bind('RenderEngine', Markdown())
 
-	def boot(self):
-		pass
+    def boot(self):
+        pass
