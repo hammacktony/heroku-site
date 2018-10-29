@@ -33,8 +33,8 @@ class BlogEditorController(object):
             image = Upload.driver('s3').store_prepend(
                 Request.input('file_upload'), 'blog/img/')
         except AttributeError:
-            # If user did not pick image, set image to none. (Load default)
-            image = "nightlife1.jpg"
+            # If user did not pick image, set image to none.
+            pass
 
         Post.create(
             title=remove_whitespaces(Request.input('title')),

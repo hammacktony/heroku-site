@@ -1,3 +1,4 @@
+''' Migration file for Posts table  '''
 from orator.migrations import Migration
 
 
