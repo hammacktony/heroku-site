@@ -18,7 +18,7 @@ from masonite.providers import (
     CsrfProvider,
 )
 
-from app.providers.HookProvider import SentryServiceProvider
+from app.providers.ExceptionHookProvider import ExceptionHookServiceProvider
 from app.providers.BlogProvider import BlogProvider
 from app.providers.RenderEngineProvider import RenderEngineProvider
 from app.providers.MiddlewareProvider import MiddlewareProvider
@@ -63,7 +63,7 @@ PROVIDERS = [
     # Third Party Providers
     RenderEngineProvider,
     RouteCompileProvider,
-    SentryServiceProvider,
+    ExceptionHookServiceProvider,
 
     # Application Providers
     UserModelProvider,

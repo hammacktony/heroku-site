@@ -87,6 +87,7 @@ Werkzeug = "==0.14.1"
 masonite = "*"
 mypy = "*"
 webtest = "*"
+rollbar = "*"
 
 [dev-packages]
 

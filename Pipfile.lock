@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "66a7889d45d4e575230286ba8f8a697d183be9b51a250bbc16ec452e41ab4a60"
+            "sha256": "22a6464c56503cc48b002d56032f01de6e634bc64f7227d6997f83962698e521"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -786,6 +786,13 @@
             ],
             "index": "pypi",
             "version": "==1.4.3"
+        },
+        "rollbar": {
+            "hashes": [
+                "sha256:47d993b59cf2b457d80a511b495b0c518209035bdef67be6faf1961ed891abad"
+            ],
+            "index": "pypi",
+            "version": "==0.14.5"
         },
         "s3transfer": {
             "hashes": [
