@@ -32,16 +32,7 @@ class PostsController(object):
 
         # Get recent posts
         recent_posts = Post.where('is_live', 1).order_by(
-            'updated_at', 'desc').take(5).get()
-
-        return view('blog/post', {'user': user[0], 'post': posts[0], 'recent': recent_posts})
-
-        # Get current author
-        user = User.where('id', posts[0].author_id).get()
-
-        # Get recent posts
-        recent_posts = Post.where('is_live', 1).order_by(
-            'updated_at', 'desc').take(5).get()
+            'created_at', 'desc').take(5).get()
 
         return view('blog/post', {'user': user[0], 'post': posts[0], 'recent': recent_posts})
 
