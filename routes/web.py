@@ -13,17 +13,17 @@ ROUTES = [
     Get().route('/volcanoes', 'VolcanoesController@show'),
     # Comics
     Get().route('/comics', 'ComicsController@show'),
-    
+
     # Blog
     RouteGroup([
-        Get().route('/blog', 'PostsController@show_all'),
-        Get().route('/blog/post/@slug', 'PostsController@show_one'),
-        Get().route('/blog/category/@category', 'PostsController@show_category'),
-        Get().route('/blog/author/@author', 'PostsController@show_author'),
+        Get().route('/@blog', 'PostsController@show_all'),
+        Get().route('/@blog/post/@slug', 'PostsController@show_one'),
+        Get().route('/@blog/category/@category', 'PostsController@show_category'),
+        Get().route('/@blog/author/@author', 'PostsController@show_author')
     ]),
 
 
-     # Dashboard
+    # Dashboard
     DashboardRoutes(),
     RouteGroup([
 
@@ -37,24 +37,24 @@ ROUTES = [
         RouteGroup([
             Get().route('/main', 'BlogEditorController@show_all'),
 
-                # Blog Editor
-                RouteGroup([
-                    Get().route('/create', 'BlogEditorController@show_create'),
-                    Post().route('/create', 'BlogEditorController@create'),
+            # Blog Editor
+            RouteGroup([
+                Get().route('/create', 'BlogEditorController@show_create'),
+                Post().route('/create', 'BlogEditorController@create'),
 
-                    Get().route('/@slug/update', 'BlogEditorController@show_update'),
-                    Post().route('/@slug/update', 'BlogEditorController@update'),
+                Get().route('/@slug/update', 'BlogEditorController@show_update'),
+                Post().route('/@slug/update', 'BlogEditorController@update'),
 
-                    Get().route('/@slug/delete', 'BlogEditorController@show_delete'),
-                    Post().route('/@slug/delete', 'BlogEditorController@delete'),
+                Get().route('/@slug/delete', 'BlogEditorController@show_delete'),
+                Post().route('/@slug/delete', 'BlogEditorController@delete'),
 
-                    Get().route('/@slug/activate', 'BlogEditorController@activate'),
-                    Get().route('/@slug/deactivate', 'BlogEditorController@deactivate'),
+                Get().route('/@slug/activate', 'BlogEditorController@activate'),
+                Get().route('/@slug/deactivate', 'BlogEditorController@deactivate'),
 
-                    Get().route('/preview/@slug', 'BlogEditorController@preview')
-                ], prefix="/post")
+                Get().route('/preview/@slug', 'BlogEditorController@preview')
+            ], prefix="/post")
 
-            ], prefix="/blog")        
+        ], prefix="/blog")
 
     ], prefix='/dashboard', middleware=('auth',))
 
@@ -66,5 +66,5 @@ ROUTES = [
 #     Post().route('/login', 'LoginController@store'),
 #     Get().route('/register', 'RegisterController@show'),
 #     Post().route('/register', 'RegisterController@store'),
-    
+
 # ]

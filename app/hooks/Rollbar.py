@@ -9,4 +9,5 @@ class RollbarHook:
         pass
     
     def load(self, app):
-        rollbar.report_exc_info()
+        # rollbar.report_exc_info()
+        pass

@@ -1,13 +1,14 @@
 ''' A Post Database Model '''
-from orator.orm import belongs_to, scope
-
-from app.User import User
 from config.database import Model
+from orator.orm import belongs_to
+from orator.orm import scope
+from app.User import User
 
 
-class Post(Model):
-    
+class Personal(Model):
     __connection__ = 'connection_2'
+
+    __table__ = "personal"
 
     __fillable__ = ['title',
                     'author_id',

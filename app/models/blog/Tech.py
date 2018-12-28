@@ -5,10 +5,12 @@ from app.User import User
 from config.database import Model
 
 
-class Post(Model):
-    
+class Tech(Model):
+
     __connection__ = 'connection_2'
 
+    __table__ = "tech"
+    
     __fillable__ = ['title',
                     'author_id',
                     'body',

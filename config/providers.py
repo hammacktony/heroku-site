@@ -24,6 +24,7 @@ from app.providers.RenderEngineProvider import RenderEngineProvider
 from app.providers.MiddlewareProvider import MiddlewareProvider
 from app.providers.UserModelProvider import UserModelProvider
 from app.providers.RouteCompileProvider import RouteCompileProvider
+from app.providers.BlogRepositoryProvider import BlogRepositoryProvider
 from dashboard.providers import DashboardProvider
 
 '''
@@ -64,6 +65,7 @@ PROVIDERS = [
     RenderEngineProvider,
     RouteCompileProvider,
     ExceptionHookServiceProvider,
+    BlogRepositoryProvider,
 
     # Application Providers
     UserModelProvider,

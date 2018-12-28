@@ -7,7 +7,6 @@ class ExceptionHookServiceProvider(ServiceProvider):
     def register(self):
         self.app.bind('SentryExceptionHook', SentryHook())
         self.app.bind('RollbarExceptionHook', RollbarHook())
-
         
     def boot(self):
         pass

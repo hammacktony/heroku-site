@@ -12,3 +12,4 @@ class RouteCompileProvider(ServiceProvider):
         Route.compile('slug', r'[a-zA-Z-]')
         Route.compile('author', r'[a-zA-Z]')
         Route.compile('category', r'[a-zA-Z]')
+        Route.compile('blog', r'[a-zA-Z]')
