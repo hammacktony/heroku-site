@@ -3,7 +3,7 @@
 import os
 
 from dotenv import find_dotenv, load_dotenv
-from orator import DatabaseManager, Model
+from orator import DatabaseManager, Model, Schema
 
 '''
 |--------------------------------------------------------------------------
@@ -48,4 +48,5 @@ DATABASES = {
 }
 
 DB = DatabaseManager(DATABASES)
+SCHEMA= Schema(DB)
 Model.set_connection_resolver(DB)
