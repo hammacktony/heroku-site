@@ -13,11 +13,11 @@
           {# Display when post was either created or last updated #}
           {% if  post.created_at.to_formatted_date_string() ==  post.updated_at.to_formatted_date_string() %}
               <p class="post-meta">Posted by
-                  <a style="color: white" href="/blog/author/{{ user.user_name }}">{{ user.name }}</a> on 
+                  <a style="color: white" href="/{{ route }}/author/{{ user.user_name }}">{{ user.name }}</a> on 
                 {{ post.created_at.to_formatted_date_string() }}</p>
           {% else %}
             <p class="post-meta">Updated by
-                 <a style="color: white" href="/blog/author/{{ user.user_name }}">{{ user.name }}</a> on 
+                 <a style="color: white" href="/{{ route }}/author/{{ user.user_name }}">{{ user.name }}</a> on 
                 {{ post.updated_at.to_formatted_date_string() }}</p>
           {% endif %}
         </div>
@@ -51,7 +51,7 @@
               {% set cat_slug = cat_slug.rstrip() %}
               {% set cat_slug = cat_slug.replace(' ', '-').lower() %}
               <div class="alert alert-dark" role="alert" style="display: inline-block;">
-                <a href="/blog/category/{{ cat_slug }}">{{ category }}</a>
+                <a href="/{{ route }}/category/{{ cat_slug }}">{{ category }}</a>
               </div>
             {% endfor %}
           {% endif %}
