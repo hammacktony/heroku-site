@@ -18,7 +18,7 @@ class BlogEditorController(object):
         """ Display all posts in blog editor """
 
         posts = self.Blog.order_by(
-            'created_at', 'desc').get()
+            'updated_by', 'desc').get()
 
         return view('dashboard/blog/home', {'author': User, 'Auth': Auth(Request),
                                             'posts': posts, 'blog': self.blog_name})
