@@ -16,10 +16,10 @@ ROUTES = [
 
     # Blog
     RouteGroup([
-        Get().route('/@blog', 'PostsController@show_all'),
-        Get().route('/@blog/post/@slug', 'PostsController@show_one'),
-        Get().route('/@blog/category/@category', 'PostsController@show_category'),
-        Get().route('/@blog/author/@author', 'PostsController@show_author')
+        Get().route('/blog/@blog', 'PostsController@show_all'),
+        Get().route('/blog/@blog/post/@slug', 'PostsController@show_one'),
+        Get().route('/blog/@blog/category/@category', 'PostsController@show_category'),
+        Get().route('/blog/@blog/author/@author', 'PostsController@show_author')
     ]),
 
 

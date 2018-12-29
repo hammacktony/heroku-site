@@ -17,12 +17,12 @@
           {# Display when post was either created or last updated #}
           {% if post.created_at.to_formatted_date_string() == post.updated_at.to_formatted_date_string() %}
           <p class="post-meta">Posted by
-            <a style="color: white;" href="/{{ blog }}/author/{{ author.find(post.author_id).user_name }}">{{
+            <a style="color: white;" href="/blog/{{ blog }}/author/{{ author.find(post.author_id).user_name }}">{{
               author.find(post.author_id).name }}</a> on
             {{ post.created_at.to_formatted_date_string() }}</p>
           {% else %}
           <p class="post-meta">Updated by
-            <a style="color: white;" href="/{{ blog }}/author/{{ author.find(post.author_id).user_name }}">{{
+            <a style="color: white;" href="/blog/{{ blog }}/author/{{ author.find(post.author_id).user_name }}">{{
               author.find(post.author_id).name }}</a> on
             {{ post.updated_at.to_formatted_date_string() }}</p>
           {% endif %}

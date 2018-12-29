@@ -7,11 +7,11 @@
     <!-- Showing posts and  -->
     {% for post in posts|reverse %}
     <div id="{{ post.slug }}">
-      <h3>{{ post.title }}
+      <h3><a href="/blog/{{ blog }}/post/{{ post.slug }}" style="color: black">{{ post.title }}
         {% if post.is_live == True %}
           (active)
         {% endif %}
-      </h3>
+      </a></h3>
       {# Display when post was either created or last updated #}
           {% if  post.created_at.to_formatted_date_string() ==  post.updated_at.to_formatted_date_string() %}
               <p class="post-meta">Posted by
