@@ -63,17 +63,17 @@ class BlogEditorController(object):
 
         return view('dashboard/blog/post/update', {'post': posts[0], 'Auth': Auth(Request), 'blog': self.blog_name})
 
-    def update(self, Request):
+    def update(self, Request, Upload):
         """ Update Post Controller """
 
         # Get post via slug
         posts = self.Blog.where('slug', Request.param('slug')).get()
-
+    
         # Updates Post
         posts[0].title = remove_whitespaces(Request.input('title'))
         posts[0].slug = slugify(posts[0].title)
         posts[0].body = remove_whitespaces(Request.input('body'))
-        posts[0].category = remove_whitespaces(Request.input('category')),
+        posts[0].category = remove_whitespaces(Request.input('category'))
 
         posts[0].save()
 
