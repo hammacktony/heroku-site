@@ -17,7 +17,7 @@ class PostsController(object):
         """ Controller to show all posts"""
         # dd(self.Blog)
         posts = self.Blog.where('is_live', 1).order_by(
-            'created_at', 'desc').get()
+            'updated_at', 'desc').get()
         return view('blog', {'author': User, 'posts': posts, 'blog': self.blog_name})
 
     def show_one(self, Request, RenderEngine):
@@ -35,7 +35,7 @@ class PostsController(object):
 
         # Get recent posts
         recent_posts = self.Blog.where('is_live', 1).order_by(
-            'created_at', 'desc').take(5).get()
+            'updated_at', 'desc').take(5).get()
 
         return view('blog/post', {'user': user[0], 'post': posts[0], 'recent': recent_posts, 'blog': self.blog_name})
 
@@ -44,7 +44,7 @@ class PostsController(object):
 
         category = convert_slug_to_category(Request.param('category'))
         posts = self.Blog.where('category', category).where('is_live', 1).order_by(
-            'created_at', 'desc').get()
+            'updated_at', 'desc').get()
 
         return view('blog/category', {'author': User, 'category': category, 'posts': posts, 'blog': self.blog_name})
 
