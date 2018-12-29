@@ -16,7 +16,8 @@ class PostsController(object):
     def show_all(self):
         """ Controller to show all posts"""
         # dd(self.Blog)
-        posts = self.Blog.where('is_live', 1).get()
+        posts = self.Blog.where('is_live', 1).order_by(
+            'created_at', 'desc').get()
         return view('blog', {'author': User, 'posts': posts, 'blog': self.blog_name})
 
     def show_one(self, Request, RenderEngine):
@@ -42,7 +43,8 @@ class PostsController(object):
         """ Controller to show posts by category"""
 
         category = convert_slug_to_category(Request.param('category'))
-        posts = self.Blog.where('category', category).where('is_live', 1).get()
+        posts = self.Blog.where('category', category).where('is_live', 1).order_by(
+            'created_at', 'desc').get()
 
         return view('blog/category', {'author': User, 'category': category, 'posts': posts, 'blog': self.blog_name})
 
@@ -51,6 +53,7 @@ class PostsController(object):
 
         author = User.where('user_name', Request.param('author')).get()
 
-        posts = self.Blog.where('author_id', author[0].id).where('is_live', 1).get()
+        posts = self.Blog.where('author_id', author[0].id).where('is_live', 1).order_by(
+            'created_at', 'desc').get()
 
         return view('blog/author', {'author': author[0], 'posts': posts, 'blog': self.blog_name})
