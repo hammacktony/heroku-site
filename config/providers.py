@@ -19,7 +19,7 @@ from masonite.providers import (
 )
 
 from app.providers.ExceptionHookProvider import ExceptionHookServiceProvider
-from app.providers.BlogProvider import BlogProvider
+from app.providers.BlogLinkProvider import BlogLinkProvider
 from app.providers.RenderEngineProvider import RenderEngineProvider
 from app.providers.MiddlewareProvider import MiddlewareProvider
 from app.providers.UserModelProvider import UserModelProvider
@@ -71,5 +71,5 @@ PROVIDERS = [
     UserModelProvider,
     MiddlewareProvider,
     DashboardProvider,
-    BlogProvider,
+    BlogLinkProvider,
 ]

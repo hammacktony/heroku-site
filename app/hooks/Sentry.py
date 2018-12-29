@@ -10,5 +10,4 @@ class SentryHook:
         pass
     
     def load(self, app):
-        # client.captureException()
-        pass
+        client.captureException()

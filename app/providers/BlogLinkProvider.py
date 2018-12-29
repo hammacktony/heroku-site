@@ -16,7 +16,7 @@ class ProfileLink(UserLink):
     display = 'Profile'
     url = '/dashboard/user/profile'
 
-class BlogProvider(ServiceProvider):
+class BlogLinkProvider(ServiceProvider):
 
     def register(self):
         self.app.bind('PersonalBlog', PersonalBlogLink)
