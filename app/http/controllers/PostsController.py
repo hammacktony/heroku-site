@@ -1,5 +1,5 @@
 ''' A Controller for Live Posts'''
-from app.Post import Post
+# from app.models.blog import BlogRepo
 from app.User import User
 from helpers.PostsHelpers import convert_slug_to_category
 from masonite.facades.Auth import Auth
@@ -10,14 +10,14 @@ class PostsController(object):
 
     def __init__(self, Request, BlogRepo):
         """ Set blog table at runtime """
-        self.route_name = Request.param('blog')
-        self.Blog = BlogRepo.get(self.route_name)
+        self.blog_name = Request.param('blog').lower()
+        self.Blog = BlogRepo.get(self.blog_name)
 
     def show_all(self):
         """ Controller to show all posts"""
-
+        # dd(self.Blog)
         posts = self.Blog.where('is_live', 1).get()
-        return view('blog', {'author': User, 'posts': posts, 'route': self.route_name})
+        return view('blog', {'author': User, 'posts': posts, 'blog': self.blog_name})
 
     def show_one(self, Request, RenderEngine):
         """ Controller to show single post"""
@@ -36,7 +36,7 @@ class PostsController(object):
         recent_posts = self.Blog.where('is_live', 1).order_by(
             'created_at', 'desc').take(5).get()
 
-        return view('blog/post', {'user': user[0], 'post': posts[0], 'recent': recent_posts, 'route': self.route_name})
+        return view('blog/post', {'user': user[0], 'post': posts[0], 'recent': recent_posts, 'blog': self.blog_name})
 
     def show_category(self, Request):
         """ Controller to show posts by category"""
@@ -44,7 +44,7 @@ class PostsController(object):
         category = convert_slug_to_category(Request.param('category'))
         posts = self.Blog.where('category', category).where('is_live', 1).get()
 
-        return view('blog/category', {'author': User, 'category': category, 'posts': posts, 'route': self.route_name})
+        return view('blog/category', {'author': User, 'category': category, 'posts': posts, 'blog': self.blog_name})
 
     def show_author(self, Request):
         """ Controller to show posts by author"""
@@ -53,4 +53,4 @@ class PostsController(object):
 
         posts = self.Blog.where('author_id', author[0].id).where('is_live', 1).get()
 
-        return view('blog/author', {'author': author[0], 'posts': posts, 'route': self.route_name})
+        return view('blog/author', {'author': author[0], 'posts': posts, 'blog': self.blog_name})

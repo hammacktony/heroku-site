@@ -2,8 +2,9 @@
 {% block content %}
 
 <div class="col-xs-9">
+    <h1>{{ blog.title() }} Blog</h1>
 
-    <form action='/dashboard/blog/post/{{ post.slug }}/delete' method="POST">
+    <form action='/dashboard/blog/{{ blog }}/post/{{ post.slug }}/delete' method="POST">
         {{ csrf_field|safe }}
         <div class="form-group">
             <label>
@@ -11,7 +12,7 @@
             </label> ​
         </div>
         <button type="delete" class="btn btn-primary">Delete</button>
-         <a class="btn btn-primary" href="/dashboard/blog/main" role="button">Cancel</a>
+        <a class="btn btn-primary" href="/dashboard/blog/{{ blog }}/home" role="button">Cancel</a>
     </form>
 
 </div>

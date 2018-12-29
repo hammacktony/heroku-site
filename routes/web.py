@@ -34,27 +34,23 @@ ROUTES = [
         ], prefix="/user"),
 
         # Dashboard - Blog
-        RouteGroup([
-            Get().route('/main', 'BlogEditorController@show_all'),
+            Get().route('/blog/@blog/home', 'BlogEditorController@show_all'),
 
             # Blog Editor
-            RouteGroup([
-                Get().route('/create', 'BlogEditorController@show_create'),
-                Post().route('/create', 'BlogEditorController@create'),
+            Get().route('/blog/@blog/post/create', 'BlogEditorController@show_create'),
+            Post().route('/blog/@blog/post/create', 'BlogEditorController@create'),
 
-                Get().route('/@slug/update', 'BlogEditorController@show_update'),
-                Post().route('/@slug/update', 'BlogEditorController@update'),
+            Get().route('/blog/@blog/post/@slug/update', 'BlogEditorController@show_update'),
+            Post().route('/blog/@blog/post/@slug/update', 'BlogEditorController@update'),
 
-                Get().route('/@slug/delete', 'BlogEditorController@show_delete'),
-                Post().route('/@slug/delete', 'BlogEditorController@delete'),
+            Get().route('/blog/@blog/post/@slug/delete', 'BlogEditorController@show_delete'),
+            Post().route('/blog/@blog/post/@slug/delete', 'BlogEditorController@delete'),
 
-                Get().route('/@slug/activate', 'BlogEditorController@activate'),
-                Get().route('/@slug/deactivate', 'BlogEditorController@deactivate'),
+            Get().route('/blog/@blog/post/@slug/activate', 'BlogEditorController@activate'),
+            Get().route('/blog/@blog/post/@slug/deactivate', 'BlogEditorController@deactivate'),
 
-                Get().route('/preview/@slug', 'BlogEditorController@preview')
-            ], prefix="/post")
+            Get().route('/blog/@blog/post/preview/@slug', 'BlogEditorController@preview')
 
-        ], prefix="/blog")
 
     ], prefix='/dashboard', middleware=('auth',))
 

@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="site-heading">
-          <h1>My Blog</h1>
+          <h1>My {{ blog.title() }} Blog</h1>
         </div>
       </div>
     </div>
@@ -19,7 +19,7 @@
 <div class="col-lg-9 col-md-10 mx-auto">
   <div class="post-preview" style="text-align: center">
     {% for post in posts|reverse %}
-    <a href="/{{ route }}/post/{{ post.slug }}">
+    <a href="/{{ blog }}/post/{{ post.slug }}">
       <h2 class="post-title post">
         {{ post.title }}
       </h2>
@@ -28,11 +28,11 @@
     {# Display when post was either created or last updated #}
           {% if  post.created_at.to_formatted_date_string() ==  post.updated_at.to_formatted_date_string() %}
               <p class="post-meta">Posted by
-                  <a href="/{{ route }}/author/{{ author.find(post.author_id).user_name }}">{{ author.find(post.author_id).name }}</a> on 
+                  <a href="/{{ blog }}/author/{{ author.find(post.author_id).user_name }}">{{ author.find(post.author_id).name }}</a> on 
                 {{ post.created_at.to_formatted_date_string() }}</p>
           {% else %}
             <p class="post-meta">Updated by
-                  <a href="/{{ route }}/author/{{ author.find(post.author_id).user_name }}">{{ author.find(post.author_id).name }}</a> on 
+                  <a href="/{{ blog }}/author/{{ author.find(post.author_id).user_name }}">{{ author.find(post.author_id).name }}</a> on 
                 {{ post.updated_at.to_formatted_date_string() }}</p>
           {% endif %}
     <hr>
