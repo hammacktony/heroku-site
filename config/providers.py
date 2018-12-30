@@ -25,6 +25,7 @@ from app.providers.MiddlewareProvider import MiddlewareProvider
 from app.providers.UserModelProvider import UserModelProvider
 from app.providers.RouteCompileProvider import RouteCompileProvider
 from app.providers.BlogRepositoryProvider import BlogRepositoryProvider
+from app.providers.UrlShortenerProvider import UrlShortenerProvider
 from dashboard.providers import DashboardProvider
 
 '''
@@ -66,6 +67,7 @@ PROVIDERS = [
     RouteCompileProvider,
     ExceptionHookServiceProvider,
     BlogRepositoryProvider,
+    UrlShortenerProvider,
 
     # Application Providers
     UserModelProvider,

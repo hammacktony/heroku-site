@@ -16,6 +16,7 @@ class Personal(Model):
                     'category',
                     'slug',
                     'image',
+                    'shortened_url',
                     'is_live']
 
     @belongs_to('author_id', 'id')

@@ -18,7 +18,7 @@ class BlogEditorController(object):
         """ Display all posts in blog editor """
 
         posts = self.Blog.order_by(
-            'updated_by', 'desc').get()
+            'updated_at', 'desc').get()
 
         return view('dashboard/blog/home', {'author': User, 'Auth': Auth(Request),
                                             'posts': posts, 'blog': self.blog_name})
@@ -28,7 +28,7 @@ class BlogEditorController(object):
 
         return view('dashboard/blog/post/create', {'Auth': Auth(Request), 'blog': self.blog_name})
 
-    def create(self, Request, Upload):
+    def create(self, Request, Upload, UrlShortener):
         """ Create new post """
 
         # Save image
@@ -42,15 +42,30 @@ class BlogEditorController(object):
         except AttributeError:
             # If user did not pick image, set image to none.
             image = None
-            
 
+        # Create slug
+        slug = slugify(remove_whitespaces(Request.input('title')))
+
+        # Get full url of article
+        url = "http://www.tonyhammack.com/blog/{blog}/post/{slug}".format(
+            blog=self.blog_name, slug=slug)
+
+        # Create shortened link for sharing
+        shortened_url = UrlShortener.shorten(long_url=url)
+        try:
+            link = shortened_url["link"]
+        except KeyError:
+            link = None
+
+        # Create blog
         self.Blog.create(
             title=remove_whitespaces(Request.input('title')),
-            slug=slugify(remove_whitespaces(Request.input('title'))),
-            category = remove_whitespaces(Request.input('category')),
+            slug=slug,
+            category=remove_whitespaces(Request.input('category')),
             body=remove_whitespaces(Request.input('body')),
             image=image,
             author_id=Request.user().id,
+            shortened_url=link,
             is_live=1
         )
 
@@ -64,18 +79,30 @@ class BlogEditorController(object):
 
         return view('dashboard/blog/post/update', {'post': posts[0], 'Auth': Auth(Request), 'blog': self.blog_name})
 
-    def update(self, Request, Upload):
+    def update(self, Request, Upload, UrlShortener):
         """ Update Post Controller """
 
         # Get post via slug
         posts = self.Blog.where('slug', Request.param('slug')).get()
-    
+
         # Updates Post
         posts[0].title = remove_whitespaces(Request.input('title'))
         posts[0].slug = slugify(posts[0].title)
         posts[0].body = remove_whitespaces(Request.input('body'))
         posts[0].category = remove_whitespaces(Request.input('category'))
 
+        # Get full url of article
+        url = "http://www.tonyhammack.com/blog/{blog}/post/{slug}".format(
+            blog=self.blog_name, slug=posts[0].slug)
+
+        # Create shortened link for sharing
+        shortened_url = UrlShortener.shorten(long_url=url)
+        try:
+            posts[0].shortened_url = shortened_url["link"]
+        except KeyError:
+            pass
+
+        # Update post
         posts[0].save()
 
         return Request.redirect('dashboard/blog/{}/home'.format(self.blog_name), {'Auth': Auth(Request)})
