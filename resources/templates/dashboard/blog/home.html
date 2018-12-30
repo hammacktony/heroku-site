@@ -11,6 +11,9 @@
         {% if post.is_live == True %}
           (active)
         {% endif %}
+        {% if post.shortened_url %}
+          <small><a href="{{ post.shortened_url }}">{{ post.shortened_url }}</a></small>
+        {% endif %}
       </a></h3>
       {# Display when post was either created or last updated #}
           {% if  post.created_at.to_formatted_date_string() ==  post.updated_at.to_formatted_date_string() %}
