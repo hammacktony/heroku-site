@@ -56,7 +56,7 @@ class BlogEditorController(object):
             link = shortened_url["link"]
         except KeyError:
             link = None
-
+            
         # Create blog
         self.Blog.create(
             title=remove_whitespaces(Request.input('title')),
