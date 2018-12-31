@@ -26,6 +26,7 @@ class CreateUsersTable(Migration):
             table.string('gitlab').nullable()
             table.string('linkedin').nullable()
             table.string('website').nullable()
+            table.string('devto').nullable()
 
             # User Profile Photo
             table.string('image').nullable()

@@ -33,6 +33,7 @@ class ProfileController(object):
 		user[0].facebook = remove_whitespaces(Request.input('facebook'))
 		user[0].github = remove_whitespaces(Request.input('github'))
 		user[0].gitlab = remove_whitespaces(Request.input('gitlab'))
+		user[0].devto = remove_whitespaces(Request.input('devto'))
 		user[0].bio = remove_whitespaces(Request.input('bio'))
 
 		# Save image
