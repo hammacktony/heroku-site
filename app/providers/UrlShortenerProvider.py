@@ -1,7 +1,7 @@
 ''' A UrlShortener Service Provider '''
 from config import urlshortener
-from drivers import UrlShortenerBitlyDriver
-from managers import UrlShortenerManager
+from app.drivers import UrlShortenerBitlyDriver
+from app.managers import UrlShortenerManager
 from masonite.provider import ServiceProvider
 
 

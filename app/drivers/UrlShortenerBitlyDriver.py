@@ -3,8 +3,8 @@ import os
 
 import requests
 
-from contracts import UrlShortenerContract
-from managers import UrlShortenerManager
+from app.contracts import UrlShortenerContract
+from app.managers import UrlShortenerManager
 from masonite.drivers.BaseDriver import BaseDriver
 
 
