@@ -6,9 +6,7 @@ import os
 | Url Shortener
 |-------------  -------------------------------------------------------------
 |
-| This is where you store the api keys 
-| framework needs to place the application's name in a notification or
-| any other location as required by the application or its packages.
+| This is where you store the api keys. 
 |
 '''
 
