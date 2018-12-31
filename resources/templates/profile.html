@@ -77,6 +77,13 @@
                 </a>
             </li>
             {% endif %}
+            {% if user.devto %}
+            <li>
+                <a href="https://dev.to/{{ user.devto }}" itemprop="sameAs">
+                    <i class="fa fa-li fa-fw fa-dev" aria-hidden="true"></i> GitLab
+                </a>
+            </li>
+            {% endif %}
 
         </ul>
     </div>
