@@ -51,7 +51,7 @@ class BlogEditorController(object):
             blog=self.blog_name, slug=slug)
 
         # Create shortened link for sharing
-        shortened_url = UrlShortener.shorten(long_url=url)
+        shortened_url = UrlShortener.driver("bitly").shorten(long_url=url)
         try:
             link = shortened_url["link"]
         except KeyError:

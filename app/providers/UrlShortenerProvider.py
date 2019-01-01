@@ -1,7 +1,7 @@
 ''' A UrlShortener Service Provider '''
-from config import urlshortener
-from app.drivers import UrlShortenerBitlyDriver
+from app.drivers import UrlShortenerBitlyDriver, UrlShortenerTinyurlDriver
 from app.managers import UrlShortenerManager
+from config import urlshortener
 from masonite.provider import ServiceProvider
 
 
@@ -12,7 +12,9 @@ class UrlShortenerProvider(ServiceProvider):
     def register(self):
         self.app.bind('UrlShortenerConfig', urlshortener)
         self.app.bind('UrlShortenerBitlyDriver', UrlShortenerBitlyDriver)
+        self.app.bind('UrlShortenerTinyurlDriver', UrlShortenerTinyurlDriver)
         self.app.bind('UrlShortenerManager', UrlShortenerManager(self.app))
 
     def boot(self, UrlShortenerConfig, UrlShortenerManager):
-        self.app.bind('UrlShortener', UrlShortenerManager.driver(self.app.make('UrlShortenerConfig').DRIVER))
+        self.app.bind('UrlShortener', UrlShortenerManager.driver(
+            self.app.make('UrlShortenerConfig').URL_SHORTENER_DRIVER))
