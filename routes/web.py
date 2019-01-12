@@ -23,10 +23,7 @@ ROUTES = [
     ]),
 
     # XML Feeds
-    RouteGroup([
-        Get().route('/blog/@blog/feed', 'FeedController@show'),
-        Get().route('/sitemap.xml', 'SitemapController@show'),
-    ]),
+    Get().route('/blog/@blog/feed', 'FeedController@show'),
 
     # Dashboard
     DashboardRoutes(),

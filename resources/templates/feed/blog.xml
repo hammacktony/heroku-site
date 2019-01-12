@@ -8,12 +8,12 @@
         <title>
           <![CDATA[{{ post.title }}]]>
         </title>
-        <link>http://tonyhammack.com/blog/{{ blog_name }}/{{post.slug}}</link>
+        <link>http://tonyhammack.com/blog/{{ blog_name }}/post/{{post.slug}}</link>
         <description>
           <![CDATA[{{ post.body | safe }}]]>
         </description>
         <pubDate>{{post.created_at.to_formatted_date_string()}}</pubDate>
-        <guid isPermaLink="true">http://tonyhammack.com/blog/{{ blog_name }}/{{post.slug}}</guid>
+        <guid isPermaLink="true">http://tonyhammack.com/blog/{{ blog_name }}/post/{{post.slug}}</guid>
       </item>
     {% endfor %}
   </channel>
