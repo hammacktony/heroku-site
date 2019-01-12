@@ -22,6 +22,11 @@ ROUTES = [
         Get().route('/blog/@blog/author/@author', 'PostsController@show_author')
     ]),
 
+    # XML Feeds
+    RouteGroup([
+        Get().route('/blog/@blog/feed', 'FeedController@show'),
+        Get().route('/sitemap.xml', 'SitemapController@show'),
+    ]),
 
     # Dashboard
     DashboardRoutes(),
