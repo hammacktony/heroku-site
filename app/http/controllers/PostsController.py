@@ -1,5 +1,4 @@
 ''' A Controller for Live Posts'''
-# from app.models.blog import BlogRepo
 from app.User import User
 from helpers.PostsHelpers import convert_slug_to_category
 from masonite.facades.Auth import Auth
@@ -8,10 +7,10 @@ from masonite.facades.Auth import Auth
 class PostsController(object):
     ''' Posts Controller '''
 
-    def __init__(self, Request, BlogRepo):
+    def __init__(self, Request, BlogFactory):
         """ Set blog table at runtime """
         self.blog_name = Request.param('blog').lower()
-        self.Blog = BlogRepo.get(self.blog_name)
+        self.Blog = BlogFactory().make(self.blog_name)
 
     def show_all(self):
         """ Controller to show all posts"""

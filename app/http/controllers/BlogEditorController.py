@@ -1,5 +1,4 @@
 ''' A Controller to create, update, and delete blog entries '''
-# from app.models.blog import BlogRepo
 from app.User import User
 from masonite.facades.Auth import Auth
 
@@ -9,10 +8,10 @@ from helpers.DashboardHelper import remove_whitespaces, slugify
 class BlogEditorController(object):
     ''' Dashboard Blog Controller '''
 
-    def __init__(self, Request, BlogRepo):
+    def __init__(self, Request, BlogFactory):
         """ Set blog table at runtime """
         self.blog_name = Request.param('blog').lower()
-        self.Blog = BlogRepo.get(self.blog_name)
+        self.Blog = BlogFactory.make(self.blog_name)
 
     def show_all(self, Request):
         """ Display all posts in blog editor """
