@@ -1,9 +1,0 @@
-language: python
-python:
-  - "3.6"
-install:
-  - pip install -r requirements
-  - craft install
-script: 
-  - python -m pytest -m "not webtest"
-  - python -m mypy --ignore-missing-imports .
