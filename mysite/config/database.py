@@ -22,30 +22,22 @@ Supported Drivers: 'sqlite', 'mysql', 'postgres'
 """
 
 DATABASES = {
-    'default': env('DB_CONNECTION'),
-    'sqlite': {
-        'driver': 'sqlite',
-        'database': env('DB_DATABASE'),
-        'log_queries': env('DB_LOG'),
+    'default': {
+        'driver': env('CONNECTION1_DB_DRIVER'),
+        'host': env('CONNECTION1_DB_HOST'),
+        'database': env('CONNECTION1_DB_DATABASE'),
+        'user': env('CONNECTION1_DB_USERNAME'),
+        'password': env('CONNECTION1_DB_PASSWORD'),
+        'prefix': ''
     },
-    'mysql': {
-        'driver': 'mysql',
-        'host': env('DB_HOST'),
-        'database': env('DB_DATABASE'),
-        'port': env('DB_PORT'),
-        'user': env('DB_USERNAME'),
-        'password': env('DB_PASSWORD'),
-        'log_queries': env('DB_LOG'),
-    },
-    'postgres': {
-        'driver': 'postgres',
-        'host': env('DB_HOST'),
-        'database': env('DB_DATABASE'),
-        'port': env('DB_PORT'),
-        'user': env('DB_USERNAME'),
-        'password': env('DB_PASSWORD'),
-        'log_queries': env('DB_LOG'),
-    },
+    'connection_2': {
+        'driver': env('CONNECTION2_DB_DRIVER'),
+        'host': env('CONNECTION2_DB_HOST'),
+        'database': env('CONNECTION2_DB_DATABASE'),
+        'user': env('CONNECTION2_DB_USERNAME'),
+        'password': env('CONNECTION2_DB_PASSWORD'),
+        'prefix': ''
+    }
 }
 
 DB = DatabaseManager(DATABASES)
@@ -53,7 +45,7 @@ Model.set_connection_resolver(DB)
 
 
 logger = logging.getLogger('orator.connection.queries')
-logger.setLevel(logging.DEBUG )
+logger.setLevel(logging.DEBUG)
 
 formatter = logging.Formatter(
     'It took %(elapsed_time)sms to execute the query %(query)s'
