@@ -7,7 +7,7 @@ from app.models import PersonalBlog
 from helpers.PostsHelpers import convert_slug_to_category
 
 
-class PersonalBlogResource(Resource):
+class PersonalBlogResource(Resource, JSONSerializer):
 
     model = PersonalBlog
 

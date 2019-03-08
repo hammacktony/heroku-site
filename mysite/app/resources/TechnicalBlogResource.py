@@ -7,7 +7,7 @@ from app.models import TechnicalBlog
 from helpers.PostsHelpers import convert_slug_to_category
 
 
-class TechnicalBlogResource(Resource):
+class TechnicalBlogResource(Resource, JSONSerializer):
 
     model = TechnicalBlog
 
