@@ -1,0 +1,2 @@
+from .PersonalBlogResource import PersonalBlogResource
+from .TechnicalBlogResource import TechnicalBlogResource
