@@ -79,23 +79,24 @@ class TechnicalBlogResource(Resource, JSONSerializer):
         url = f"http://www.tonyhammack.com/blog/tech/post/{slug}"
 
         # Create shortened link for sharing
-        shortened_url = UrlShortener.shorten(long_url=url)
-        try:
-            link = shortened_url["link"]
-        except KeyError:
-            link = None
+        # shortened_url = UrlShortener.shorten(long_url=url)
+        # try:
+        #     link = shortened_url["link"]
+        # except KeyError:
+        #     link = None
             
-        # Create blog
-        self.model.create(
-            title=remove_whitespaces(request.input('title')),
-            slug=slug,
-            category=remove_whitespaces(request.input('category')),
-            body=remove_whitespaces(request.input('body')),
-            image=None,
-            author_id=1, # TODO - Dynamically set author,
-            shortened_url=link,
-            is_live=1
-        )
+        # # Create blog
+        # self.model.create(
+        #     title=remove_whitespaces(request.input('title')),
+        #     slug=slug,
+        #     category=remove_whitespaces(request.input('category')),
+        #     body=remove_whitespaces(request.input('body')),
+        #     image=None,
+        #     author_id=1, # TODO - Dynamically set author,
+        #     shortened_url=link,
+        #     is_live=1
+        # )
 
         request.status(201)
-        return {'response': 'post created'}
+        # return {'response': 'post created'}
+        return "Hi"
