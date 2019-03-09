@@ -10,6 +10,7 @@ from helpers.PostsHelpers import convert_slug_to_category
 class PersonalBlogResource(Resource, JSONSerializer):
 
     model = PersonalBlog
+    list_middleware = ['csrf']
 
     def index(self, request: Request):
         """ Return all posts """
