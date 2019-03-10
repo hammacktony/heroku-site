@@ -15,7 +15,6 @@ class PersonalBlogResource(Resource, JSONSerializer):
     # Url of blog
     url = "http://www.tonyhammack.com/blog/personal/post/{}"
 
-
     def index(self, request: Request):
         """ Return all posts """
 
@@ -104,7 +103,7 @@ class PersonalBlogResource(Resource, JSONSerializer):
             'category': category,
             'image': None,    # TODO - Change in the future
             'author_id': 1,   # TODO - Change in the future
-            'shortLink': short_link.get('link', None),
+            'shortened_link': short_link.get('link', None),
             'is_live': 1,
         }
 
@@ -138,7 +137,7 @@ class PersonalBlogResource(Resource, JSONSerializer):
         # # Create shortened link for sharing
         shortened_url = UrlShortener.shorten(
             long_url=self.url.format(update['slug']))
-        update['shortLink'] = shortened_url.get("link", None)
+        update['shortened_link'] = shortened_url.get("link", None)
 
         # Update post by id
         self.model.where('id', post[0]['id']).update(update)
