@@ -1,7 +1,9 @@
 """Web Routes."""
-from app.resources import PersonalBlogResource
-from app.resources import TechnicalBlogResource
 from masonite.routes import Get, Post
+
+from api.routes import JWTRoutes
+from app.resources import (PersonalBlogResource, TechnicalBlogResource,
+                           UserResource)
 
 ROUTES = [
     Get().route('/', 'WelcomeController@show').name('welcome'),
@@ -9,4 +11,6 @@ ROUTES = [
     # Api
     PersonalBlogResource('/api/blog/personal').routes(),
     TechnicalBlogResource('/api/blog/technical').routes(),
+    UserResource('/api/user').routes(),
+    JWTRoutes('/token'),
 ]
