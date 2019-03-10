@@ -61,6 +61,8 @@ class TechnicalBlogResource(Resource, JSONSerializer):
     def create(self, UrlShortener, request: Request):  # , upload: Upload):
         """ Create new post """
 
+        # TODO - Add Permissions with JWT
+
         # Validate Entry
         validate = PostValidator(request)
         validate.register_form()
@@ -116,6 +118,8 @@ class TechnicalBlogResource(Resource, JSONSerializer):
     def update(self, UrlShortener, request: Request):
         " Update Post "
 
+        # TODO - Add Permissions with JWT
+
         # # Get post via slug
         post = self.model.where(
             'slug', request.param('id')).get().serialize()
@@ -125,7 +129,7 @@ class TechnicalBlogResource(Resource, JSONSerializer):
             return {'status': 'post not found'}
 
         # Updates Post
-        update = {}
+        update = dict()
         update['title'] = remove_whitespaces(
             request.input('title', post[0]['title']))
         update['slug'] = slugify(update['title'])
@@ -147,6 +151,8 @@ class TechnicalBlogResource(Resource, JSONSerializer):
 
     def delete(self, request: Request):
         """ Deletes a Post """
+
+        # TODO - Add Permissions with JWT
 
         # Get slug from url
         slug = request.param('id')
