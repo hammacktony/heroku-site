@@ -16,7 +16,7 @@ class PersonalBlogResource(Resource, JSONSerializer):
     url = "http://www.tonyhammack.com/blog/personal/post/{}"
 
 
-def index(self, request: Request):
+    def index(self, request: Request):
         """ Return all posts """
 
         query = {
@@ -87,7 +87,12 @@ def index(self, request: Request):
         title = remove_whitespaces(request.input('title'))
         slug = slugify(title)
         body = remove_whitespaces(request.input('body'))
-        category = remove_whitespaces(request.input('category'))
+        category = remove_whitespaces(request.input('category', ''))
+
+        # Check if post already exists, if so let us know
+        if self.model.where("slug", slug).exists():
+            request.status(403)
+            return {'status': 'post already exists'}
 
         # Create shortened link for sharing
         short_link = UrlShortener.shorten(long_url=self.url.format(slug))
@@ -122,13 +127,13 @@ def index(self, request: Request):
 
         # Updates Post
         update = {}
-        update['title'] = remove_whitespaces(request.input(
-            'title')) if request.has('title') else post[0]['title']
+        update['title'] = remove_whitespaces(
+            request.input('title', post[0]['title']))
         update['slug'] = slugify(update['title'])
-        update['body'] = remove_whitespaces(request.input(
-            'body')) if request.has('body') else post[0]['body']
-        update['category'] = remove_whitespaces(request.input(
-            'category')) if request.has('category') else post[0]['category']
+        update['body'] = remove_whitespaces(
+            request.input('body', post[0]['body']))
+        update['category'] = remove_whitespaces(
+            request.input('category', post[0]['category']))
 
         # # Create shortened link for sharing
         shortened_url = UrlShortener.shorten(
@@ -136,7 +141,7 @@ def index(self, request: Request):
         update['shortLink'] = shortened_url.get("link", None)
 
         # Update post by id
-        self.model.where('id', post['id']).update(update)
+        self.model.where('id', post[0]['id']).update(update)
 
         request.status(202)
         return {'status': 'updated'}
@@ -150,7 +155,7 @@ def index(self, request: Request):
         # Delete Post
         response = self.model.where('slug', slug).delete()
 
-        if response == 0:
+        if not response:
             request.status(410)  # TODO - Change to 404 in the future
             return {'status': 'post not found'}
 
