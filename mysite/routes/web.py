@@ -12,5 +12,5 @@ ROUTES = [
     PersonalBlogResource('/api/blog/personal').routes(),
     TechnicalBlogResource('/api/blog/technical').routes(),
     UserResource('/api/user').routes(),
-    JWTRoutes('/token'),
+    JWTRoutes('/api/token'),
 ]
