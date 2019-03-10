@@ -1,4 +1,4 @@
-""" Authenticate user """
+""" Validate scopes """
 import jwt
 import pendulum
 from masonite.validator import Validator
