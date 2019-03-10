@@ -23,19 +23,19 @@ Supported Drivers: 'sqlite', 'mysql', 'postgres'
 
 DATABASES = {
     'default': {
-        'driver': env('CONNECTION1_DB_DRIVER'),
-        'host': env('CONNECTION1_DB_HOST'),
-        'database': env('CONNECTION1_DB_DATABASE'),
-        'user': env('CONNECTION1_DB_USERNAME'),
-        'password': env('CONNECTION1_DB_PASSWORD'),
+        'driver': env('MYSQL_DB_DRIVER'),
+        'host': env('MYSQL_DB_HOST'),
+        'database': env('MYSQL_DB_DATABASE'),
+        'user': env('MYSQL_DB_USERNAME'),
+        'password': env('MYSQL_DB_PASSWORD'),
         'prefix': ''
     },
-    'connection_2': {
-        'driver': env('CONNECTION2_DB_DRIVER'),
-        'host': env('CONNECTION2_DB_HOST'),
-        'database': env('CONNECTION2_DB_DATABASE'),
-        'user': env('CONNECTION2_DB_USERNAME'),
-        'password': env('CONNECTION2_DB_PASSWORD'),
+    'postgres': {
+        'driver': env('POSTGRES_DB_DRIVER'),
+        'host': env('POSTGRES_DB_HOST'),
+        'database': env('POSTGRES_DB_DATABASE'),
+        'user': env('POSTGRES_DB_USERNAME'),
+        'password': env('POSTGRES_DB_PASSWORD'),
         'prefix': ''
     },
     'test': {
