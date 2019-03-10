@@ -37,6 +37,7 @@ class TechnicalBlogResource(Resource, JSONSerializer):
         # Set limit of posts, defaults to None (Grabs all posts)
         limit = request.input('limit', None)
 
+        request.status(200)
         return self.model.order_by(
             'updated_at', 'desc').where(query).take(limit).get()
 
@@ -48,6 +49,7 @@ class TechnicalBlogResource(Resource, JSONSerializer):
             'is_live': 1,
         }
 
+        request.status(200)
         return self.model.where(query).get()
 
     def create(self, UrlShortener, request: Request):  # , upload: Upload):
@@ -59,7 +61,7 @@ class TechnicalBlogResource(Resource, JSONSerializer):
 
         # When we fail, alert us!
         if not validate.check():
-            request.status(412)
+            request.status(406)
             return {'error': validate.errors()}
 
         # TODO - Import image
@@ -109,15 +111,21 @@ class TechnicalBlogResource(Resource, JSONSerializer):
 
         # Updates Post
         update = {}
-        update['title'] = remove_whitespaces(request.input('title'))
+        update['title'] = remove_whitespaces(request.input(
+            'title')) if request.has('title') else post['title']
         update['slug'] = slugify(update['title'])
-        update['body'] = remove_whitespaces(request.input('body'))
-        update['category'] = remove_whitespaces(request.input('category'))
+        update['body'] = remove_whitespaces(request.input(
+            'body')) if request.has('body') else post['body']
+        update['category'] = remove_whitespaces(request.input(
+            'category')) if request.has('category') else post['category']
 
         # # Create shortened link for sharing
         shortened_url = UrlShortener.shorten(
             long_url=self.url.format(update['slug']))
         update['shortLink'] = shortened_url.get("link", None)
 
+        # Update post by id
         self.model.where('id', post['id']).update(update)
-        return {'status': 'saved'}
+
+        request.status(202)
+        return {'status': 'updated'}
