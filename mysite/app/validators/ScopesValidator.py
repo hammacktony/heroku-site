@@ -10,7 +10,7 @@ from config.application import KEY
 
 
 class ScopesValidator(Validator):
-    
+
     def _fetch_token(self):
         """Gets the token from the request object
         Raises:
@@ -30,8 +30,9 @@ class ScopesValidator(Validator):
         return token
 
     def _get_token(self):
-        """Returns the decrypted string as a dictionary. This method needs to be overwritten on each authentication class.
-        
+        """Returns the decrypted string as a dictionary. This method needs to be 
+            overwritten on each authentication class.
+
         Returns:
             dict -- Should always return a dictionary
         """
@@ -47,11 +48,12 @@ class ScopesValidator(Validator):
         token = self._get_token()
         if pendulum.parse(token['expires']).is_past():
             raise ExpiredToken
-        
+
     def _run_authentication(self):
         """Call the authenticate method and check for any exceptions thrown
         Returns:
-            None|dict -- Should return None if a successful authentication or a dictionary with an error if not successfully authenticated
+            None|dict -- Should return None if a successful authentication or a 
+                dictionary with an error if not successfully authenticated
         """
 
         try:
@@ -73,7 +75,7 @@ class ScopesValidator(Validator):
             return {'error': str(e)}
 
     def validate(self, reference):
-        
+
         # Validate token
         self._run_authentication()
 
