@@ -9,8 +9,8 @@ class CsrfMiddleware(Middleware):
     exempt = [
         '/api/blog/*',
         '/api/user/*',
-        '/token',
-        '/token/refresh'
+        '/api/token',
+        '/api/token/refresh'
     ]
     every_request = False
     token_length = 30
