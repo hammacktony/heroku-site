@@ -37,12 +37,19 @@ DATABASES = {
         'user': env('CONNECTION2_DB_USERNAME'),
         'password': env('CONNECTION2_DB_PASSWORD'),
         'prefix': ''
+    },
+    'test': {
+        'driver': env('test_DB_DRIVER'),
+        'host': env('test_DB_HOST'),
+        'database': env('test_DB_DATABASE'),
+        'user': env('test_DB_USERNAME'),
+        'password': env('test_DB_PASSWORD'),
+        'prefix': ''
     }
 }
 
 DB = DatabaseManager(DATABASES)
 Model.set_connection_resolver(DB)
-
 
 logger = logging.getLogger('orator.connection.queries')
 logger.setLevel(logging.DEBUG)
