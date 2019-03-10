@@ -49,8 +49,14 @@ class TechnicalBlogResource(Resource, JSONSerializer):
             'is_live': 1,
         }
 
+        response = self.model.where(query).get().serialize()
+
+        if not response:
+            request.status(410)  # TODO - Change to 404 in the future
+            return {'status': 'post not found'}
+
         request.status(200)
-        return self.model.where(query).get()
+        return response
 
     def create(self, UrlShortener, request: Request):  # , upload: Upload):
         """ Create new post """
@@ -107,17 +113,21 @@ class TechnicalBlogResource(Resource, JSONSerializer):
 
         # # Get post via slug
         post = self.model.where(
-            'slug', request.param('slug')).get().serialize()[0]
+            'slug', request.param('id')).get().serialize()
+
+        if not post:
+            request.status(410)  # TODO - Change to 404 in the future
+            return {'status': 'post not found'}
 
         # Updates Post
         update = {}
         update['title'] = remove_whitespaces(request.input(
-            'title')) if request.has('title') else post['title']
+            'title')) if request.has('title') else post[0]['title']
         update['slug'] = slugify(update['title'])
         update['body'] = remove_whitespaces(request.input(
-            'body')) if request.has('body') else post['body']
+            'body')) if request.has('body') else post[0]['body']
         update['category'] = remove_whitespaces(request.input(
-            'category')) if request.has('category') else post['category']
+            'category')) if request.has('category') else post[0]['category']
 
         # # Create shortened link for sharing
         shortened_url = UrlShortener.shorten(
@@ -129,3 +139,19 @@ class TechnicalBlogResource(Resource, JSONSerializer):
 
         request.status(202)
         return {'status': 'updated'}
+
+    def delete(self, request: Request):
+        """ Deletes a Post """
+
+        # Get slug from url
+        slug = request.param('id')
+
+        # Delete Post
+        response = self.model.where('slug', slug).delete()
+
+        if response == 0:
+            request.status(410)  # TODO - Change to 404 in the future
+            return {'status': 'post not found'}
+
+        request.status(202)
+        return {'status': 'deleted'}
