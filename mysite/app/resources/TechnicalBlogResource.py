@@ -3,7 +3,7 @@ from masonite.request import Request
 from api.resources import Resource
 from api.serializers import JSONSerializer
 from app.models import TechnicalBlog
-from app.validators import PostValidator
+from app.validators import ScopesValidator, PostValidator
 from helpers.DashboardHelper import remove_whitespaces, slugify
 from helpers.PostsHelpers import convert_slug_to_category
 
@@ -11,6 +11,7 @@ from helpers.PostsHelpers import convert_slug_to_category
 class TechnicalBlogResource(Resource, JSONSerializer):
 
     model = TechnicalBlog
+    # scopes = ['user:create', 'user:update', 'user:delete']
 
     # Url of blog
     url = "http://www.tonyhammack.com/blog/tech/post/{}"
@@ -62,6 +63,12 @@ class TechnicalBlogResource(Resource, JSONSerializer):
         """ Create new post """
 
         # TODO - Add Permissions with JWT
+        # Make sure we have permission to be here
+        scopes_validation = ScopesValidator(request)
+        result = scopes_validation.validate('create')
+        if not result:
+            request.status(401)
+            return {'error': 'cannot update post'}
 
         # Validate Entry
         validate = PostValidator(request)
@@ -119,11 +126,17 @@ class TechnicalBlogResource(Resource, JSONSerializer):
         " Update Post "
 
         # TODO - Add Permissions with JWT
+        # Make sure we have permission to be here
+        scopes_validation = ScopesValidator(request)
+        result = scopes_validation.validate('update')
+        if not result:
+            request.status(401)
+            return {'error': 'cannot update post'}
 
         # # Get post via slug
         post = self.model.where(
             'slug', request.param('id')).get().serialize()
-
+        # dd(post)
         if not post:
             request.status(410)  # TODO - Change to 404 in the future
             return {'status': 'post not found'}
@@ -153,6 +166,12 @@ class TechnicalBlogResource(Resource, JSONSerializer):
         """ Deletes a Post """
 
         # TODO - Add Permissions with JWT
+        # Make sure we have permission to be here
+        scopes_validation = ScopesValidator(request)
+        result = scopes_validation.validate('delete')
+        if not result:
+            request.status(401)
+            return {'error': 'cannot delete post'}
 
         # Get slug from url
         slug = request.param('id')
