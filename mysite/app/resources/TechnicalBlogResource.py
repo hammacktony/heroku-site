@@ -11,7 +11,6 @@ from helpers.PostsHelpers import convert_slug_to_category
 class TechnicalBlogResource(Resource, JSONSerializer):
 
     model = TechnicalBlog
-    # list_middleware = ['csrf']
 
     # Url of blog
     url = "http://www.tonyhammack.com/blog/tech/post/{}"
@@ -115,11 +114,9 @@ class TechnicalBlogResource(Resource, JSONSerializer):
         update['body'] = remove_whitespaces(request.input('body'))
         update['category'] = remove_whitespaces(request.input('category'))
 
-        # # Get full url of article
-        url = "http://www.tonyhammack.com/blog/tech/post/{update.slug}"
-
         # # Create shortened link for sharing
-        shortened_url = UrlShortener.shorten(long_url=url)
+        shortened_url = UrlShortener.shorten(
+            long_url=self.url.format(update['slug']))
         update['shortLink'] = shortened_url.get("link", None)
 
         self.model.where('id', post['id']).update(update)
