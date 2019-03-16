@@ -6,7 +6,7 @@ from app.User import User
 
 
 class PersonalBlog(Model):
-    __connection__ = 'connection_2'
+    __connection__ = 'default'
 
     __table__ = "personal"
 

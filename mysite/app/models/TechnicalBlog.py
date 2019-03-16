@@ -7,10 +7,10 @@ from config.database import Model
 
 class TechnicalBlog(Model):
 
-    __connection__ = 'connection_2'
+    __connection__ = 'default'
 
     __table__ = "tech"
-    
+
     __fillable__ = ['title',
                     'author_id',
                     'body',

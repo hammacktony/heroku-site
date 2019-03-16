@@ -11,6 +11,7 @@ from helpers.PostsHelpers import convert_slug_to_category
 class TechnicalBlogResource(Resource, JSONSerializer):
 
     model = TechnicalBlog
+    
     # scopes = ['user:create', 'user:update', 'user:delete']
 
     # Url of blog
@@ -68,7 +69,7 @@ class TechnicalBlogResource(Resource, JSONSerializer):
         result = scopes_validation.validate('create')
         if not result:
             request.status(401)
-            return {'error': 'cannot update post'}
+            return {'error': 'cannot create post'}
 
         # Validate Entry
         validate = PostValidator(request)
