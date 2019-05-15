@@ -9,6 +9,7 @@ masonite-api = "*"
 masonite-cli = "*"
 jwt = "*"
 unidecode = "*"
+pymysql = "*"
 
 [dev-packages]
 black = "*"
