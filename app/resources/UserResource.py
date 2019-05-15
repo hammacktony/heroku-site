@@ -7,7 +7,7 @@ from app.models.PersonalBlog import PersonalBlog
 
 class UserResource(Resource, JSONSerializer):
 
-    model = PersonalBlog
+    model = User
     methods = ['index']
     without = ['id', 'password', 'remember_token', 'is_admin',
                'created_at', 'updated_at', 'twitter', 'facebook', 'gitlab']
