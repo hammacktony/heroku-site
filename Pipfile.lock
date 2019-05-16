@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3d5a90370b0a176f718c570ad16d098e535ca325fc670325d64f65360c0129a5"
+            "sha256": "fa8f879fedd8df0148e67e88dd5c1aa105af6bf9e7c846e73ae773df1ac2aeb1"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -158,6 +158,14 @@
             ],
             "version": "==0.8.18"
         },
+        "gunicorn": {
+            "hashes": [
+                "sha256:aa8e0b40b4157b36a5df5e599f45c9c76d6af43845ba3b3b0efe2c70473c2471",
+                "sha256:fa2662097c66f920f53f70621c6c58ca4a3c4d3434205e608e121b5b3b71f4f3"
+            ],
+            "index": "pypi",
+            "version": "==19.9.0"
+        },
         "hupper": {
             "hashes": [
                 "sha256:cb33b8f1de73a3566f4bd7decc620d0c6de7d7da9cdf176b6ad310fe037d6106",
@@ -250,10 +258,10 @@
         },
         "masonite": {
             "hashes": [
-                "sha256:2196d36523d5bd45777bc019e72caa423c76b3a5ac45b3e0df392438209e1669"
+                "sha256:44df3b5cbf6dc50341f293128c9141c00721983ed047eba48d4176cfda3c00aa"
             ],
             "index": "pypi",
-            "version": "==2.1.28"
+            "version": "==2.1.29"
         },
         "masonite-api": {
             "hashes": [
@@ -446,10 +454,10 @@
         },
         "requests": {
             "hashes": [
-                "sha256:502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e",
-                "sha256:7bf2a778576d825600030a110f3c0e3e8edc51dfaafe1c146e39a2027784957b"
+                "sha256:11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4",
+                "sha256:9cf5292fcd0f598c671cfc1e0d7d1a7f13bb8085e9a590f48c010551dc6c4b31"
             ],
-            "version": "==2.21.0"
+            "version": "==2.22.0"
         },
         "requests-file": {
             "hashes": [
@@ -518,10 +526,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:2393a695cd12afedd0dcb26fe5d50d0cf248e5a66f75dbd89a3d4eb333a61af4",
-                "sha256:a637e5fae88995b256e3409dc4d52c2e2e0ba32c42a6365fee8bbd2238de3cfb"
+                "sha256:a53063d8b9210a7bdec15e7b272776b9d42b2fd6816401a0d43006ad2f9902db",
+                "sha256:d363e3607d8de0c220d31950a8f38b18d5ba7c0830facd71a1c6b1036b7ce06c"
             ],
-            "version": "==1.24.3"
+            "version": "==1.25.2"
         },
         "validator.py": {
             "hashes": [

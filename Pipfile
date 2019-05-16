@@ -10,6 +10,7 @@ masonite-cli = "*"
 jwt = "*"
 unidecode = "*"
 pymysql = "*"
+gunicorn = "*"
 
 [dev-packages]
 black = "*"
