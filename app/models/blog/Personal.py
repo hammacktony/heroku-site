@@ -6,7 +6,7 @@ from app.User import User
 
 
 class Personal(Model):
-    __connection__ = 'connection_2'
+    __connection__ = 'mysql'
 
     __table__ = "personal"
 

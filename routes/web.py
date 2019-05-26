@@ -1,16 +1,14 @@
-''' Web Routes '''
+"""Web Routes."""
+
 from masonite.routes import Get, Post, RouteGroup
-from dashboard.routes import routes as DashboardRoutes
 
 ROUTES = [
     # Index
     Get().route('/', 'HomeController@show'),
     # Contact
-    Get().route('/contact', 'ContactController@show'),
-    Post().route('/contact', 'ContactController@store'),
-    # Projects
-    Get().route('/projects', 'ProjectsController@show'),
-    Get().route('/volcanoes', 'VolcanoesController@show'),
+    # Get().route('/contact', 'ContactController@show'),
+    # Post().route('/contact', 'ContactController@store'),
+
     # Comics
     Get().route('/comics', 'ComicsController@show'),
 
@@ -26,7 +24,7 @@ ROUTES = [
     Get().route('/blog/@blog/feed', 'FeedController@show'),
 
     # Dashboard
-    DashboardRoutes(),
+    # DashboardRoutes(),
     RouteGroup([
 
         # Dashboard - User
@@ -58,11 +56,18 @@ ROUTES = [
 
 ]
 
-# ROUTES = ROUTES + [
-#     Get().route('/login', 'LoginController@show'),
-#     Get().route('/logout', 'LoginController@logout'),
-#     Post().route('/login', 'LoginController@store'),
-#     Get().route('/register', 'RegisterController@show'),
-#     Post().route('/register', 'RegisterController@store'),
-
-# ]
+ROUTES = ROUTES + [
+    Get().route('/login', 'LoginController@show').name('login'),
+    Get().route('/logout', 'LoginController@logout').name('logout'),
+    Post().route('/login', 'LoginController@store'),
+    Get().route('/register', 'RegisterController@show').name('register'),
+    Post().route('/register', 'RegisterController@store'),
+    Get().route('/home', 'HomeController@show').name('home'),
+    Get().route('/email/verify', 'ConfirmController@verify_show').name('verify'),
+    Get().route('/email/verify/@id:signed', 'ConfirmController@confirm_email'),
+    Get().route('/email/verify/@id:signed', 'ConfirmController@confirm_email'),
+    Get().route('/password', 'PasswordController@forget').name('forgot.password'),
+    Post().route('/password', 'PasswordController@send'),
+    Get().route('/password/@token/reset', 'PasswordController@reset').name('password.reset'),
+    Post().route('/password/@token/reset', 'PasswordController@update'),
+]

@@ -4,6 +4,6 @@ from config.database import Model
 
 class ComicBook(Model):
 
-    __connection__ = 'default'
+    __connection__ = 'postgres'
 
     __table__ = "comicbook"

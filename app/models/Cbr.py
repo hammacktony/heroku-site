@@ -4,5 +4,5 @@ from config.database import Model
 
 class Cbr(Model):
     
-    __connection__ = 'default'
+    __connection__ = 'postgres'
     __table__ = "cbr"

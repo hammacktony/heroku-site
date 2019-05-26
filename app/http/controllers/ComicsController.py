@@ -1,18 +1,12 @@
 ''' A Module Description '''
 # from masonite.facades.Auth import Auth
 
-from mods.scrape.search_criterion import criterion
-from mods.scrape.sources import sources
-from app.models import (
-    BleedingCool,
-    Cbr,
-    ComicBook,
-    ComicsBeat,
-    Ign,
-    Nerdist,
-    Newsarama,
-    Outhousers
-)
+from app.models import (BleedingCool, Cbr, ComicBook, ComicsBeat, Ign, Nerdist,
+                        Newsarama, Outhousers)
+from lib.scrape.search_criterion import criterion
+from lib.scrape.sources import sources
+from masonite.view import View
+
 
 class ComicsController:
     ''' Controller for Comic News Template'''
@@ -20,7 +14,7 @@ class ComicsController:
     def __init__(self):
         pass
 
-    def show(self, Application, Request):
+    def show(self, view: View):
         ''' Show Comic News Template '''
 
         # retrieves data for each Model in the repository
@@ -35,4 +29,4 @@ class ComicsController:
             "newsarama": Newsarama.select('title', 'link').get(),
             "outhousers": Outhousers.select('title', 'link').get()
         }
-        return view('comics/news', data)
+        return view.render('comics/news', data)

@@ -2,7 +2,7 @@
 from .Personal import Personal
 from .Tech import Tech
 
-class BlogFactory:
+class Blog:
     
     blogs = {
         'personal': Personal,

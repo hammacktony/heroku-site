@@ -7,7 +7,7 @@ from config.database import Model
 
 class Tech(Model):
 
-    __connection__ = 'connection_2'
+    __connection__ = 'mysql'
 
     __table__ = "tech"
     

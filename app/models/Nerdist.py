@@ -4,6 +4,6 @@ from config.database import Model
 
 class Nerdist(Model):
 
-    __connection__ = 'default'
+    __connection__ = 'postgres'
 
     __table__ = "nerdist"

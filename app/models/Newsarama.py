@@ -4,6 +4,6 @@ from config.database import Model
 
 class Newsarama(Model):
 
-    __connection__ = 'default'
+    __connection__ = 'postgres'
 
     __table__ = "newsarama"
