@@ -10,7 +10,7 @@ class FeedController:
 
     def __init__(self, request: Request):
         self.blog_name = request.param('blog').lower()
-        self.Blog = Blog.make(self.blog_name)
+        self.Blog = Blog().make(self.blog_name)
 
     def show(self, request: Request, markdown: Markdown, view: View):
         """ Show XML Feed """
