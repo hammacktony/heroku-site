@@ -3,7 +3,7 @@ from api.resources import Resource
 from api.serializers import JSONSerializer
 from masonite.request import Request
 
-from app.lib.slugify import slugify
+from app.helpers.slugify import slugify
 from app.models import Personal, Tech, User
 
 
