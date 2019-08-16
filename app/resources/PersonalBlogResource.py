@@ -2,8 +2,8 @@ from api.authentication import JWTAuthentication
 from api.resources import Resource
 from api.serializers import JSONSerializer
 from masonite.request import Request
-from slugify import slugify
 
+from app.lib.slugify import slugify
 from app.models import Personal, Tech, User
 
 
@@ -35,7 +35,7 @@ class PersonalBlogResource(Resource, JSONSerializer):
         self.model.create(
             slug=slugify(request.input("title")),
             title=request.input("title"),
-            image="",
+            image=request.input("image"),
             category=slugify(request.input("category").lower()),
             body=request.input("body"),
             is_live=1,
