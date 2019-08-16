@@ -1,73 +1,14 @@
 """Web Routes."""
 
-from masonite.routes import Get, Post, RouteGroup
+from masonite.routes import Get, Post
+from api.routes import JWTRoutes
+
+from app.resources import PersonalBlogResource, TechnicalBlogResource, UserResource
 
 ROUTES = [
-    # Index
-    Get().route('/', 'HomeController@show'),
-    # Contact
-    # Get().route('/contact', 'ContactController@show'),
-    # Post().route('/contact', 'ContactController@store'),
-
-    # Comics
-    Get().route('/comics', 'ComicsController@show'),
-
-    # Blog
-    RouteGroup([
-        Get().route('/blog/@blog', 'PostsController@show_all'),
-        Get().route('/blog/@blog/post/@slug', 'PostsController@show_one'),
-        Get().route('/blog/@blog/category/@category', 'PostsController@show_category'),
-        Get().route('/blog/@blog/author/@author', 'PostsController@show_author')
-    ]),
-
-    # XML Feeds
-    Get().route('/blog/@blog/feed', 'FeedController@show'),
-
-    # Dashboard
-    # DashboardRoutes(),
-    RouteGroup([
-
-        # Dashboard - User
-        RouteGroup([
-            Get().route('/profile', 'ProfileController@show'),
-            Post().route('/profile', 'ProfileController@store'),
-        ], prefix="/user"),
-
-        # Dashboard - Blog
-            Get().route('/blog/@blog/home', 'BlogEditorController@show_all'),
-
-            # Blog Editor
-            Get().route('/blog/@blog/post/create', 'BlogEditorController@show_create'),
-            Post().route('/blog/@blog/post/create', 'BlogEditorController@create'),
-
-            Get().route('/blog/@blog/post/@slug/update', 'BlogEditorController@show_update'),
-            Post().route('/blog/@blog/post/@slug/update', 'BlogEditorController@update'),
-
-            Get().route('/blog/@blog/post/@slug/delete', 'BlogEditorController@show_delete'),
-            Post().route('/blog/@blog/post/@slug/delete', 'BlogEditorController@delete'),
-
-            Get().route('/blog/@blog/post/@slug/activate', 'BlogEditorController@activate'),
-            Get().route('/blog/@blog/post/@slug/deactivate', 'BlogEditorController@deactivate'),
-
-            Get().route('/blog/@blog/post/preview/@slug', 'BlogEditorController@preview')
-
-
-    ], prefix='/dashboard', middleware=('auth',))
-
-]
-
-ROUTES = ROUTES + [
-    Get().route('/login', 'LoginController@show').name('login'),
-    Get().route('/logout', 'LoginController@logout').name('logout'),
-    Post().route('/login', 'LoginController@store'),
-    Get().route('/register', 'RegisterController@show').name('register'),
-    Post().route('/register', 'RegisterController@store'),
-    Get().route('/home', 'HomeController@show').name('home'),
-    Get().route('/email/verify', 'ConfirmController@verify_show').name('verify'),
-    Get().route('/email/verify/@id:signed', 'ConfirmController@confirm_email'),
-    Get().route('/email/verify/@id:signed', 'ConfirmController@confirm_email'),
-    Get().route('/password', 'PasswordController@forget').name('forgot.password'),
-    Post().route('/password', 'PasswordController@send'),
-    Get().route('/password/@token/reset', 'PasswordController@reset').name('password.reset'),
-    Post().route('/password/@token/reset', 'PasswordController@update'),
+    Get("/", "IndexController@show").name("main"),
+    PersonalBlogResource("/api/personal").routes(),
+    TechnicalBlogResource("/api/tech").routes(),
+    UserResource('/api/user').routes(),
+    JWTRoutes('/api/token'),
 ]

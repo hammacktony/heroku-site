@@ -23,7 +23,6 @@ DRIVERS = {
         'client': env('S3_CLIENT', 'AxJz...'),
         'secret': env('S3_SECRET', 'HkZj...'),
         'bucket': env('S3_BUCKET', 's3bucket'),
-        'location': env('S3_LOCATION', 's3location'),
     },
     'rackspace': {
         'username': env('RACKSPACE_USERNAME', 'username'),
@@ -56,15 +55,12 @@ and an alias of <img src="/static/image.png">
 """
 
 STATICFILES = {
+    # folder          # template alias
     'storage/static': 'static/',
     'storage/compiled': 'static/',
     'storage/uploads': 'static/',
-    'storage/blog/img': 'img/',
-    'storage/user/img': 'img/',
-    'storage/static/assets/css': 'css/',
-    'storage/static/assets/img': 'img/',
-    'storage/static/assets/js': 'js/',
-    'storage/static/assets/html': 'html/'
+    'storage/public': '/',
+    'resources/templates/app/dist/app': '/',
 }
 
 """SASS Settings

@@ -12,7 +12,21 @@ class CreateUsersTable(Migration):
             table.string('password')
             table.string('remember_token').nullable()
             table.timestamp('verified_at').nullable()
-            table.timestamps()
+            table.integer('is_admin').nullable()
+
+            # User profile information
+            table.string('user_name').unique()
+            table.string('bio', 10485760).nullable()
+            table.string('facebook').nullable()
+            table.string('twitter').nullable()
+            table.string('github').nullable()
+            table.string('gitlab').nullable()
+            table.string('linkedin').nullable()
+            table.string('website').nullable()
+            table.string('devto').nullable()
+
+            # User Profile Photo
+            table.string('image').nullable()
 
     def down(self):
         """Revert the migrations."""

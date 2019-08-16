@@ -2,7 +2,7 @@
 
 from masonite import env
 
-from app.User import User
+from app.models import User
 
 """Authentication Model
 Put the model here that will be used to authenticate users to your site.
@@ -19,4 +19,15 @@ be authenticated.
 AUTH = {
     'driver': env('AUTH_DRIVER', 'cookie'),
     'model': User,
+}
+
+DRIVERS = {
+    'cookie': {},
+    'jwt': {
+        """Whether or not to reauthenticate with the database when the token expires."""
+        'reauthentication': True,
+
+        """How long the token should live for before being refreshed."""
+        'lifetime': '5 minutes'
+    }
 }
