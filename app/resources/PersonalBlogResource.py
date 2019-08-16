@@ -1,9 +1,10 @@
-from api.resources import Resource
 from api.authentication import JWTAuthentication
+from api.resources import Resource
 from api.serializers import JSONSerializer
-from app.models import Personal, Tech, User
 from masonite.request import Request
 from slugify import slugify
+
+from app.models import Personal, Tech, User
 
 
 class PersonalBlogResource(Resource, JSONSerializer):
