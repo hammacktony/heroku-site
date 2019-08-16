@@ -28,7 +28,6 @@ orator==0.9.9
 passlib==1.7.1
 pastel==0.1.0
 pendulum==1.5.1
-pkg-resources==0.0.0
 psutil==5.4.8
 psycopg2-binary==2.8.3
 pyaml==16.12.2
