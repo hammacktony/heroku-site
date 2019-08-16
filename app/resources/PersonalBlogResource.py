@@ -20,9 +20,9 @@ class PersonalBlogResource(Resource, JSONSerializer):
 
         if request.has("limit"):
             limit = int(request.input("limit"))
-            return self.model.where(query).order_by("created_at", "desc").take(limit).get()
+            return self.model.where(query).order_by("updated_at", "desc").take(limit).get()
 
-        return self.model.where(query).order_by("created_at", "desc").get()
+        return self.model.where(query).order_by("updated_at", "desc").get()
 
     def show(self, request: Request):
         """ Return post by slug """
