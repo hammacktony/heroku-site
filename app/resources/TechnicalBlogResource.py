@@ -50,6 +50,7 @@ class TechnicalBlogResource(Resource, JSONSerializer):
         collection[0].slug = slugify(collection[0].title)
         collection[0].body = request.input("body")
         collection[0].category = slugify(request.input("category"))
+        collection[0].image = request.input("image")
 
         # TODO - URL Shorten
 
