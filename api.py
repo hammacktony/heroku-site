@@ -19,14 +19,11 @@ __all__ = ["app"]
 
 def routing(app: FastAPI) -> FastAPI:
     """ Declare routes """
-    static_router = APIRouter()  # Handle static routes
-    static_router.include_router(index.router, tags=["home"])
     api_router = APIRouter()  # Handle api routes
     api_router.include_router(blog.router, prefix="/blog", tags=["blog"])
     api_router.include_router(user.router, prefix="/user", tags=["test"])
 
-    # Mount routers
-    app.include_router(static_router)
+    # Mount router
     app.include_router(api_router, prefix=API_V1_STR)
 
     return app
@@ -60,14 +57,20 @@ def middleware(app: FastAPI) -> FastAPI:
     return app
 
 
-# Set up app
-app = FastAPI(
-    title="Tony Hammack", openapi_url="/api/v1/openapi.json", docs_url=docs_url, redoc_url=redoc_url, debug=DEBUG
-)
-app.mount("/static", StaticFiles(directory=STATIC_ROOT), name="static")
+def create() -> FastAPI:
+    """ Create FastAPI backend  """
+    app = FastAPI(
+        title="Tony Hammack", openapi_url="/api/v1/openapi.json", docs_url=docs_url, redoc_url=redoc_url, debug=DEBUG
+    )
+    # Mount static files
+    app.mount("/", StaticFiles(directory=STATIC_ROOT, html=True), name="static")
 
-# Routing
-app = routing(app)
+    # Routing
+    app = routing(app)
 
-# Middleware
-app = middleware(app)
+    # Middleware
+    app = middleware(app)
+    return app
+
+
+app = create()
