@@ -6,7 +6,7 @@ from typing import Optional
 from dotenv import load_dotenv
 
 # User Defined
-STATIC_ROOT: str = "./web/dist/app/static"
+STATIC_ROOT: str = "./web/dist/app"
 API_V1_STR: str = "/api"
 ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 8  # 60 minutes * 24 hours * 8 days = 8 days
 
