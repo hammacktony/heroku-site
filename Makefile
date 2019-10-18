@@ -2,9 +2,9 @@ TEST_PATH=./tests/
 MYPY_PATH=./
 
 serve:
-	gunicorn -w 4 -k uvicorn.workers.UvicornWorker api:app
+	gunicorn -w 4 -k uvicorn.workers.UvicornWorker app:app
 dev:
-	uvicorn api:app --reload
+	uvicorn app:app --reload
 clean:
 	find . -name '*.pyc' -delete
 lint:

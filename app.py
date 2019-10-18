@@ -5,27 +5,21 @@ from typing import List
 from fastapi import APIRouter, FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from starlette.middleware.gzip import GZipMiddleware
-from starlette.requests import Request
 from starlette.staticfiles import StaticFiles
 
-from core.config import API_V1_STR, BACKEND_CORS_ORIGINS, DEBUG, SENTRY_DSN, STATIC_ROOT
-from routes import blog, index, user
-
-# Disable doc urls in production
-docs_url, redoc_url = ("/docs", "/redoc") if DEBUG else (None, None)
+from core.config import (API_V1_STR, BACKEND_CORS_ORIGINS, DEBUG, DOCS,
+                         SENTRY_DSN, STATIC_ROOT)
+from routes import blog, user
 
 __all__ = ["app"]
 
 
 def routing(app: FastAPI) -> FastAPI:
     """ Declare routes """
-    api_router = APIRouter()  # Handle api routes
-    api_router.include_router(blog.router, prefix="/blog", tags=["blog"])
-    api_router.include_router(user.router, prefix="/user", tags=["test"])
-
-    # Mount router
-    app.include_router(api_router, prefix=API_V1_STR)
-
+    router = APIRouter()
+    router.include_router(blog.router, prefix="/blog", tags=["blog"])
+    router.include_router(user.router, prefix="/user", tags=["user"])
+    app.include_router(router, prefix=API_V1_STR)
     return app
 
 
@@ -57,20 +51,25 @@ def middleware(app: FastAPI) -> FastAPI:
     return app
 
 
-def create() -> FastAPI:
+def init() -> FastAPI:
     """ Create FastAPI backend  """
     app = FastAPI(
-        title="Tony Hammack", openapi_url="/api/v1/openapi.json", docs_url=docs_url, redoc_url=redoc_url, debug=DEBUG
+        title="Tony Hammack",
+        openapi_url="/api/v1/openapi.json",
+        docs_url=DOCS.SWAGGER.value,
+        redoc_url=DOCS.REDOC.value,
+        debug=DEBUG,
     )
-    # Mount static files
-    app.mount("/", StaticFiles(directory=STATIC_ROOT, html=True), name="static")
-
     # Routing
     app = routing(app)
 
     # Middleware
     app = middleware(app)
+
+    # Mount static files
+    app.mount("/", StaticFiles(directory=STATIC_ROOT, html=True), name="static")
     return app
 
 
-app = create()
+# Initiate app
+app = init()

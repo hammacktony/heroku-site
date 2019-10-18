@@ -10,17 +10,14 @@ __all__ = ["UserModel", "PostModel"]
 class UserModel(BaseModel):
     name: str
     email: str
-    created_at: str
-    updated_at: str
-    user_name: str
     bio: str
+    website: str
+    image: str
     twitter: Optional[str] = None
     facebook: Optional[str] = None
     linkedin: Optional[str] = None
     github: Optional[str] = None
     gitlab: Optional[str] = None
-    website: str
-    image: str
     devto: Optional[str] = None
 
 

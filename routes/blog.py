@@ -18,7 +18,7 @@ class Blog(str, Enum):
 
 @router.get("/{blog}", response_model=List[PostModel])
 async def index(blog: Blog):
-    """ View all blogs  """
+    """ View all blogs """
     cursor = db[blog].find().sort("updated_at", order)
     retval = [doc async for doc in cursor]
     return retval

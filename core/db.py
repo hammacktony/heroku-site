@@ -1,13 +1,13 @@
 """ Mongo DB Connection """
 from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorDatabase
 
-from core.config import MONGO_DB, MONGO_HOST, MONGO_PORT, MONGO_PWD, MONGO_USER
+from core.config import MONGO
 
 
 def get_db() -> AsyncIOMotorDatabase:
     """ Make database connection """
 
-    if not all([MONGO_HOST, MONGO_DB, MONGO_USER, MONGO_PWD]):
+    if not all([MONGO.HOST.value, MONGO.DB.value, MONGO.USER.value, MONGO.PWD.value]):
         # Just connect to the local machine database
         connection = AsyncIOMotorClient()
         db = connection.test_db
@@ -15,9 +15,13 @@ def get_db() -> AsyncIOMotorDatabase:
 
     # Connect to remote host and authenticate user
     connection = AsyncIOMotorClient(
-        MONGO_HOST, MONGO_PORT, username=MONGO_USER, password=MONGO_PWD, authSource=MONGO_DB
+        MONGO.HOST.value,
+        MONGO.PORT.value,
+        username=MONGO.USER.value,
+        password=MONGO.PWD.value,
+        authSource=MONGO.DB.value,
     )
-    db = connection[MONGO_DB]
+    db = connection[MONGO.DB.value]
     return db
 
 
