@@ -17,7 +17,7 @@ config = Config(".env")
 DEBUG: bool = config("DEBUG", cast=bool, default=False)
 
 # Define CORS
-BACKEND_CORS_ORIGINS: Optional[str] = config("CORS", cast=CommaSeparatedStrings)
+BACKEND_CORS_ORIGINS: Optional[str] = config("CORS", cast=CommaSeparatedStrings, default="")
 
 # Sentry Config
 SENTRY_DSN: Optional[str] = config("SENTRY_DSN", cast=str, default="")
