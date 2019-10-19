@@ -3,7 +3,8 @@ import os
 from enum import Enum
 from typing import Optional
 
-from dotenv import load_dotenv
+from starlette.config import Config
+from starlette.datastructures import CommaSeparatedStrings, Secret
 
 # User Defined
 STATIC_ROOT: str = "./web/dist/app"
@@ -11,15 +12,15 @@ API_V1_STR: str = "/api"
 ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 8  # 60 minutes * 24 hours * 8 days = 8 days
 
 # Environment Defined
-load_dotenv()
+config = Config(".env")
 
-DEBUG: bool = True if os.getenv("DEBUG", "").lower() == "true" else False
+DEBUG: bool = config("DEBUG", cast=bool, default=False)
 
 # Define CORS
-BACKEND_CORS_ORIGINS: Optional[str] = os.getenv("CORS")
+BACKEND_CORS_ORIGINS: Optional[str] = config("CORS", cast=CommaSeparatedStrings)
 
 # Sentry Config
-SENTRY_DSN: Optional[str] = os.getenv("SENTRY_DSN")
+SENTRY_DSN: Optional[str] = config("SENTRY_DSN", cast=str, default="")
 
 # Show/Hide api documentation
 class DOCS(Enum):
@@ -29,9 +30,9 @@ class DOCS(Enum):
 
 # Mongo Config
 class MONGO(Enum):
-    URI: Optional[str] = os.getenv("MONGO_URI")
-    DB: str = os.getenv("MONGO_DB", "test")
-    HOST: str = os.getenv("MONGO_HOST", "localhost")
-    PORT: int = int(os.getenv("MONGO_PORT", 27017))
-    USER: str = os.getenv("MONGO_USER", "")
-    PWD: str = os.getenv("MONGO_PWD", "")
+    URI: Optional[str] = config("MONGO_URI", cast=str, default="")
+    DB: str = config("MONGO_DB", cast=str, default="test")
+    HOST: str = config("MONGO_HOST", cast=str, default="localhost")
+    PORT: int = config("MONGO_PORT", cast=int, default=27017)
+    USER: str = config("MONGO_USER", cast=str, default="")
+    PWD: str = config("MONGO_PWD", cast=str, default="")

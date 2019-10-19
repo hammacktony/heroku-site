@@ -7,8 +7,7 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.middleware.gzip import GZipMiddleware
 from starlette.staticfiles import StaticFiles
 
-from core.config import (API_V1_STR, BACKEND_CORS_ORIGINS, DEBUG, DOCS,
-                         SENTRY_DSN, STATIC_ROOT)
+from core.config import API_V1_STR, BACKEND_CORS_ORIGINS, DEBUG, DOCS, SENTRY_DSN, STATIC_ROOT
 from routes import blog, user
 
 __all__ = ["app"]
@@ -31,13 +30,12 @@ def middleware(app: FastAPI) -> FastAPI:
 
     # Enable CORS Middleware
     if BACKEND_CORS_ORIGINS:
-        origins: List[str] = list()
-        origins_raw = BACKEND_CORS_ORIGINS.split(",")
-        for origin in origins_raw:
-            use_origin = origin.strip()
-            origins.append(use_origin)
         app.add_middleware(
-            CORSMiddleware, allow_origins=origins, allow_credentials=True, allow_methods=["*"], allow_headers=["*"]
+            CORSMiddleware,
+            allow_origins=BACKEND_CORS_ORIGINS,
+            allow_credentials=True,
+            allow_methods=["*"],
+            allow_headers=["*"],
         )
 
     # Enable Sentry Middleware
