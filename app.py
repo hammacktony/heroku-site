@@ -29,7 +29,7 @@ def middleware(app: FastAPI) -> FastAPI:
     app.add_middleware(GZipMiddleware, minimum_size=1000)
 
     # Enable CORS Middleware
-    if BACKEND_CORS_ORIGINS:
+    if BACKEND_CORS_ORIGINS != [""]:
         app.add_middleware(
             CORSMiddleware,
             allow_origins=BACKEND_CORS_ORIGINS,

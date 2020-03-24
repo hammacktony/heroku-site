@@ -1,7 +1,7 @@
 """ Config settings """
 import os
 from enum import Enum
-from typing import Optional
+from typing import List, Optional
 
 from starlette.config import Config
 from starlette.datastructures import CommaSeparatedStrings, Secret
@@ -17,7 +17,7 @@ config = Config(".env")
 DEBUG: bool = config("DEBUG", cast=bool, default=False)
 
 # Define CORS
-BACKEND_CORS_ORIGINS: Optional[str] = config("CORS", cast=CommaSeparatedStrings, default="")
+BACKEND_CORS_ORIGINS: List[str] = list(config("CORS", cast=CommaSeparatedStrings, default=""))
 
 # Sentry Config
 SENTRY_DSN: Optional[str] = config("SENTRY_DSN", cast=str, default="")
