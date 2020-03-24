@@ -1040,7 +1040,7 @@ var ConfigService = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(ConfigService, "API_URL", {
-        get: function () { return document.location.protocol + "//" + document.location.hostname + ":8000"; },
+        get: function () { return document.location.protocol + "//" + document.location.hostname; },
         enumerable: true,
         configurable: true
     });

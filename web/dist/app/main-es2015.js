@@ -983,7 +983,7 @@ __webpack_require__.r(__webpack_exports__);
 let ConfigService = class ConfigService {
     constructor() { }
     static get S3_LOCATION() { return "//th-website.s3-website.us-east-2.amazonaws.com"; }
-    static get API_URL() { return `${document.location.protocol}//${document.location.hostname}:8000`; }
+    static get API_URL() { return `${document.location.protocol}//${document.location.hostname}`; }
 };
 ConfigService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
