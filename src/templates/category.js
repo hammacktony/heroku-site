@@ -8,12 +8,11 @@ import config from '../../data/SiteConfig'
 const CategoryTemplate = ({ data, pageContext }) => (
   <Layout>
     <main>
-      <Helmet title={` "${pageContext.category}" - ${config.siteTitle}`} />
+      <Helmet title={`${pageContext.category} - ${config.siteTitle}`} />
       <h1>
-Category:
-{' '}
-{pageContext.category}
-</h1>
+        Blog: {' '} 
+        {pageContext.category}
+      </h1>
       <PostListing postEdges={data.allMarkdownRemark.edges} />
     </main>
   </Layout>

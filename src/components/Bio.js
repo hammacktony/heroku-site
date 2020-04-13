@@ -10,8 +10,7 @@ const Bio = ({ config, expanded }) => (
       alt={config.userName}
     />
     <p>
-      Written by <strong>{config.userName}</strong> who lives and works in San
-      Francisco building useful things.
+      Written by <strong>{config.userName}</strong> who lives and works in {config.userLocation} building useful things.
       {` `}
       <Follow
         username={config.userTwitter}

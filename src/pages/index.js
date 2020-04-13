@@ -2,16 +2,16 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../layout'
-import PostListing from '../components/PostListing'
 import SEO from '../components/SEO'
 import config from '../../data/SiteConfig'
+import About from '../components/About'
 
-const Index = ({ data }) => (
+const Index = () => (
   <Layout>
     <main>
       <Helmet title={config.siteTitle} />
       <SEO />
-      <PostListing postEdges={data.allMarkdownRemark.edges} />
+      <About />
     </main>
   </Layout>
 )

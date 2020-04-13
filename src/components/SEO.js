@@ -10,7 +10,7 @@ const SEO = ({ postNode, postPath, postSEO }) => {
   let postURL
   if (postSEO) {
     const postMeta = postNode.frontmatter
-    ;({ title } = postMeta)
+      ; ({ title } = postMeta)
     description = postMeta.description ? postMeta.description : postNode.excerpt
     image = postMeta.cover
     postURL = urljoin(config.siteUrl, config.pathPrefix, postPath)

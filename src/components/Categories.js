@@ -13,7 +13,7 @@ const Categories = props => {
       }
     }
   `)
-
+  
   return (
     <>
       {data.allMarkdownRemark.group.map(category => (
@@ -24,7 +24,7 @@ const Categories = props => {
             activeClassName={props.activeClassName}
           >
             {category.fieldValue}
-            <strong> ({category.totalCount})</strong>
+            {/* <strong> ({category.totalCount})</strong> */}
           </Link>
         </li>
       ))}

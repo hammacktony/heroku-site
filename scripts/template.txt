@@ -1,0 +1,13 @@
+---
+date: {{ date }}
+title: {{ title }}
+cover: {{ image }}
+categories:
+    - {{ category }}
+tags:
+{% for tag in tags %}
+    - {{ tag }}
+{% endfor %}
+---
+
+{{ body }}

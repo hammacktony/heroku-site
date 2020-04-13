@@ -18,6 +18,7 @@ export default ({ data, pageContext }) => {
   if (!post.id) {
     post.id = slug
   }
+
   return (
     <Layout>
       <main>
@@ -26,6 +27,7 @@ export default ({ data, pageContext }) => {
         </Helmet>
         <SEO postPath={slug} postNode={postNode} postSEO />
         <div>
+          <img src={post.cover} alt=""/>
           <h1>{post.title}</h1>
           <p className={styles.postMeta}>
             {date} &mdash; {postNode.timeToRead} Min Read{' '}
@@ -33,6 +35,7 @@ export default ({ data, pageContext }) => {
           <div className={styles.postMeta}>
             <PostTags tags={post.tags} />
           </div>
+
           <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
 
           <hr />
