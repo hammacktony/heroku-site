@@ -120,3 +120,6 @@ venv/
 
 # VSCode
 .vscode/
+
+# Built files
+public/
