@@ -4,19 +4,29 @@ import { graphql } from 'gatsby'
 import Layout from '../layout'
 import PostListing from '../components/PostListing'
 import config from '../../data/SiteConfig'
+import BackgroundImage from '../components/BackgroundImage'
 
-const CategoryTemplate = ({ data, pageContext }) => (
-  <Layout>
-    <main>
-      <Helmet title={`${pageContext.category} - ${config.siteTitle}`} />
-      <h1>
-        Blog: {' '} 
-        {pageContext.category}
-      </h1>
-      <PostListing postEdges={data.allMarkdownRemark.edges} />
-    </main>
-  </Layout>
-)
+const CategoryTemplate = ({ data, pageContext }) => {
+  const siteTitle = `${pageContext.category} - ${config.siteTitle}`
+  const backgroundImage = config.backgroundImages[pageContext.category.toLowerCase()]
+  const text = `${pageContext.category} Blog`
+
+  return (
+    <Layout>
+      <main>
+        <Helmet title={siteTitle} />
+        <BackgroundImage src={backgroundImage} text={text} />
+
+        <PostListing postEdges={data.allMarkdownRemark.edges} />
+      </main>
+    </Layout>
+  )
+}
+
+// <img src={config.backgroundImages[pageContext.category.toLowerCase()]} alt=""/>
+// <h1>
+//   {pageContext.category} Blog
+// </h1>
 
 export default CategoryTemplate
 

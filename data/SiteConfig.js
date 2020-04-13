@@ -22,7 +22,12 @@ const config = {
     "I really enjoy coffee.", // User description to display in the author segment.
   copyright: 'Copyright © 2020. All rights reserved.', // Copyright string for the footer of the website and RSS feed.
   themeColor: '#c62828', // Used for setting manifest and progress theme colors.
-  backgroundColor: 'red' // Used for setting manifest background color.
+  backgroundColor: 'red', // Used for setting manifest background color.
+  backgroundImages: {
+    general: 'https://th-website.s3.us-east-2.amazonaws.com/user/img/cover3.jpg',
+    personal: 'http://th-website.s3-website.us-east-2.amazonaws.com/blog/img/blog-header.jpg',
+    tech: 'http://th-website.s3-website.us-east-2.amazonaws.com/blog/img/laptop-blog.jpg'
+  }
 }
 
 // Validate
