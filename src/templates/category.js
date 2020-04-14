@@ -9,24 +9,22 @@ import BackgroundImage from '../components/BackgroundImage'
 const CategoryTemplate = ({ data, pageContext }) => {
   const siteTitle = `${pageContext.category} - ${config.siteTitle}`
   const backgroundImage = config.backgroundImages[pageContext.category.toLowerCase()]
-  const text = `${pageContext.category} Blog`
+  const headingText = `${pageContext.category} Blog`
+  const headingStyle = { 'text-align': 'center' }
 
   return (
     <Layout>
       <main>
         <Helmet title={siteTitle} />
-        <BackgroundImage src={backgroundImage} text={text} />
-
+        <BackgroundImage src={backgroundImage} />
+        <h1 style={headingStyle}>
+          {headingText}
+        </h1>
         <PostListing postEdges={data.allMarkdownRemark.edges} />
       </main>
     </Layout>
   )
 }
-
-// <img src={config.backgroundImages[pageContext.category.toLowerCase()]} alt=""/>
-// <h1>
-//   {pageContext.category} Blog
-// </h1>
 
 export default CategoryTemplate
 

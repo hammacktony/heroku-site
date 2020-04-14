@@ -5,13 +5,12 @@ const BackgroundImage = props => {
         width: "100%",
         height: "350px",
         backgroundImage: "url(" + props.src + ")",
-        backgroundSize: "cover"
+        backgroundSize: "cover",
+        marginBottom: '10px'
     }
     return (
         <>
-            <div style={backgroundImageStyle}>
-                <h1>{props.text}</h1>
-            </div>
+            <div style={backgroundImageStyle} />
         </>
     )
 }
