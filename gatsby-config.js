@@ -104,7 +104,6 @@ module.exports = {
                 feed_url
                 title
                 description
-                image_url
                 copyright
               }
             }
