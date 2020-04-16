@@ -45,18 +45,16 @@ def extract_article(post: Dict[str, Any]):
 def save_output(output: str, title: str, date: str):
     base_path: Path = Path("../content") / date.split("-")[0]
     base_path.mkdir(exist_ok=True)
-    
+
     blog_path = base_path / (slugify(title) + ".md")
     if blog_path.is_file():
         os.remove(blog_path)
 
     with open(blog_path, "w") as f:
         f.write(output)
-    
+
     return None
 
-
-def main(blog: str):
 
 def main(blogs: List[str]):
     config = get_config()
@@ -88,7 +86,7 @@ def main(blogs: List[str]):
 
     return None
 
-    
+
 if __name__ == "__main__":
     from argparse import ArgumentParser
 
