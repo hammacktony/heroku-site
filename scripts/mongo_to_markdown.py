@@ -58,6 +58,7 @@ def save_output(output: str, title: str, date: str):
 
 def main(blog: str):
 
+def main(blogs: List[str]):
     config = get_config()
     client = pymongo.MongoClient(
         config["host"],
@@ -68,19 +69,21 @@ def main(blog: str):
     )
     db = client[config["db"]]
 
-    posts: List[Dict[str, Any]] = [post for post in db[blog].find().sort("updated_at", -1)]
+    for blog in blogs:
+        posts: List[Dict[str, Any]] = [post for post in db[blog].find().sort("updated_at", -1)]
+        print(f"Processing {len(posts)} posts in {blog} blog...")
 
-    for post in posts:
-        title, tags, date, body, image = extract_article(post)
-        template: Template = get_template(TEMPLATE_PATH)
-        output = template.render(
-            title=title,
-            tags=[tag for tag in tags if tag.lower() != blog.lower()],
-            date=date,
-            category=blog.title(),
-            body=body,
-            image=image,
-        )
+        for post in posts:
+            title, tags, date, body, image = extract_article(post)
+            template: Template = get_template(TEMPLATE_PATH)
+            output = template.render(
+                title=title,
+                tags=[tag for tag in tags if tag.lower() != blog.lower()],
+                date=date,
+                category=blog.title(),
+                body=body,
+                image=image,
+            )
         save_output(output, title, date)
 
     return None
@@ -90,6 +93,6 @@ if __name__ == "__main__":
     from argparse import ArgumentParser
 
     parser = ArgumentParser()
-    parser.add_argument("-b", "--blog", type=str, help="Blog in question to migrate")
+    parser.add_argument("-b", "--blog", nargs="*", type=str, help="Blog in question to migrate")
     args = parser.parse_args()
     main(args.blog)
