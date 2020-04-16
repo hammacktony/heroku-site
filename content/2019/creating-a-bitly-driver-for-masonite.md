@@ -1,7 +1,7 @@
 ---
 date: 2019-08-16
 title: Creating a Bitly Driver for Masonite
-cover: http://th-website.s3-website.us-east-2.amazonaws.com/blog/img/Screen-Shot-2018-12-31-at-11.57.06-AM.png
+cover: https://th-website.s3-website.us-east-2.amazonaws.com/blog/img/Screen-Shot-2018-12-31-at-11.57.06-AM.png
 categories:
     - Tech
 tags:

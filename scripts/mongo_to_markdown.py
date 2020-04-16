@@ -11,7 +11,7 @@ from slugify import slugify
 from tqdm import tqdm
 
 TEMPLATE_PATH = Path("./template.txt")
-S3_BUCKET = "http://th-website.s3-website.us-east-2.amazonaws.com/"
+S3_BUCKET = "https://th-website.s3-website.us-east-2.amazonaws.com/"
 
 
 def get_template(template_path: Path) -> Template:
@@ -82,7 +82,7 @@ def main(blogs: List[str]):
                 body=body,
                 image=image,
             )
-        save_output(output, title, date)
+            save_output(output, title, date)
 
     return None
 

@@ -1,7 +1,7 @@
 ---
 date: 2019-08-16
 title: Using Rollbar for Error Catching
-cover: http://th-website.s3-website.us-east-2.amazonaws.com/blog/img/Screenshot-2018-10-29-11.15.23.png
+cover: https://th-website.s3-website.us-east-2.amazonaws.com/blog/img/Screenshot-2018-10-29-11.15.23.png
 categories:
     - Tech
 tags:

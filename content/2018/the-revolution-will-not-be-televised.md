@@ -1,7 +1,7 @@
 ---
 date: 2018-02-25
 title: The Revolution Will Not Be Televised
-cover: http://th-website.s3-website.us-east-2.amazonaws.com/blog/img/revolution.jpg
+cover: https://th-website.s3-website.us-east-2.amazonaws.com/blog/img/revolution.jpg
 categories:
     - Personal
 tags:

@@ -1,7 +1,7 @@
 ---
 date: 2018-02-08
 title: One Is Not Enough...
-cover: http://th-website.s3-website.us-east-2.amazonaws.com/blog/img/120420110908-human-hero-black-power-norman-color-horizontal-large-gallery.jpg
+cover: https://th-website.s3-website.us-east-2.amazonaws.com/blog/img/120420110908-human-hero-black-power-norman-color-horizontal-large-gallery.jpg
 categories:
     - Personal
 tags:

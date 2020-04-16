@@ -1,7 +1,7 @@
 ---
 date: 2018-01-14
 title: An Open Letter to the President
-cover: http://th-website.s3-website.us-east-2.amazonaws.com/blog/img/africa.jpg
+cover: https://th-website.s3-website.us-east-2.amazonaws.com/blog/img/africa.jpg
 categories:
     - Personal
 tags:

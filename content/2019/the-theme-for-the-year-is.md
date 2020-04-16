@@ -1,7 +1,7 @@
 ---
 date: 2019-01-05
 title: The Theme for the year is....
-cover: http://th-website.s3-website.us-east-2.amazonaws.com/blog/img/boxing-gloves-wallpaper-1.jpg
+cover: https://th-website.s3-website.us-east-2.amazonaws.com/blog/img/boxing-gloves-wallpaper-1.jpg
 categories:
     - Personal
 tags:

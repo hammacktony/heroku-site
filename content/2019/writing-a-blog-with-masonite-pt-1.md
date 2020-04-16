@@ -1,7 +1,7 @@
 ---
 date: 2019-08-16
 title: Writing a blog with Masonite pt. 1
-cover: http://th-website.s3-website.us-east-2.amazonaws.com/blog/img/Screenshot-2018-10-28-22.42.16.png
+cover: https://th-website.s3-website.us-east-2.amazonaws.com/blog/img/Screenshot-2018-10-28-22.42.16.png
 categories:
     - Tech
 tags:

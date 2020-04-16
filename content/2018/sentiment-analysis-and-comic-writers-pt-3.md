@@ -1,7 +1,7 @@
 ---
 date: 2018-11-01
 title: Sentiment Analysis and Comic Writers pt. 3
-cover: http://th-website.s3-website.us-east-2.amazonaws.com/blog/img/calculate_stats.png
+cover: https://th-website.s3-website.us-east-2.amazonaws.com/blog/img/calculate_stats.png
 categories:
     - Tech
 tags:

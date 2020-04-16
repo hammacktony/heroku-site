@@ -1,7 +1,7 @@
 ---
 date: 2018-05-27
 title: To Those in the Arena...
-cover: http://th-website.s3-website.us-east-2.amazonaws.com/blog/img/gladiator.jpg
+cover: https://th-website.s3-website.us-east-2.amazonaws.com/blog/img/gladiator.jpg
 categories:
     - Personal
 tags:

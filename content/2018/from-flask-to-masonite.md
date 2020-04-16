@@ -1,7 +1,7 @@
 ---
 date: 2018-10-25
 title: From Flask to Masonite
-cover: http://th-website.s3-website.us-east-2.amazonaws.com/blog/img/BLOG_EN_1207_How-to-Make-Your-Computer-Crash-proof.png
+cover: https://th-website.s3-website.us-east-2.amazonaws.com/blog/img/BLOG_EN_1207_How-to-Make-Your-Computer-Crash-proof.png
 categories:
     - Tech
 tags:

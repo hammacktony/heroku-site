@@ -1,7 +1,7 @@
 ---
 date: 2017-12-19
 title: Why I am so in love Star Wars.....
-cover: http://th-website.s3-website.us-east-2.amazonaws.com/blog/img/star-wars-original-trilogy-1997-alamo.jpg
+cover: https://th-website.s3-website.us-east-2.amazonaws.com/blog/img/star-wars-original-trilogy-1997-alamo.jpg
 categories:
     - Personal
 tags:

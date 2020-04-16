@@ -1,7 +1,7 @@
 ---
 date: 2018-10-30
 title: Sentiment Analysis and Comic Writers pt. 1
-cover: http://th-website.s3-website.us-east-2.amazonaws.com/blog/img/twitter_upload.png
+cover: https://th-website.s3-website.us-east-2.amazonaws.com/blog/img/twitter_upload.png
 categories:
     - Tech
 tags:
