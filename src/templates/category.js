@@ -6,10 +6,23 @@ import PostListing from '../components/PostListing'
 import config from '../../data/SiteConfig'
 import BackgroundImage from '../components/BackgroundImage'
 
+const getText = (category) => {
+  switch (category) {
+    case "personal":
+      return "Personal Thoughts..."
+
+    case "tech":
+      return "Tech Blurbs..."
+
+    default:
+      return ""
+  }
+}
+
 const CategoryTemplate = ({ data, pageContext }) => {
   const siteTitle = `${pageContext.category} - ${config.siteTitle}`
   const backgroundImage = config.backgroundImages[pageContext.category.toLowerCase()]
-  const headingText = `${pageContext.category} Blog`
+  const headingText = getText(pageContext.category.toLowerCase())
   const headingStyle = { 'textAlign': 'center' }
 
   return (
