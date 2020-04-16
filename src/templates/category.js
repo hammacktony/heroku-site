@@ -10,7 +10,7 @@ const CategoryTemplate = ({ data, pageContext }) => {
   const siteTitle = `${pageContext.category} - ${config.siteTitle}`
   const backgroundImage = config.backgroundImages[pageContext.category.toLowerCase()]
   const headingText = `${pageContext.category} Blog`
-  const headingStyle = { 'text-align': 'center' }
+  const headingStyle = { 'textAlign': 'center' }
 
   return (
     <Layout>
