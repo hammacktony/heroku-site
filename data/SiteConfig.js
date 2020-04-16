@@ -2,7 +2,7 @@ const config = {
   siteTitle: 'Tony Hammack', // Site title.
   siteTitleShort: 'Tony Hammack', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
   siteTitleAlt: 'Tony Hammack', // Alternative site title for SEO.
-  siteLogo: '/logos/logo-1024.png', // Logo used for SEO and manifest.
+  siteLogo: '', // Logo used for SEO and manifest.
   siteUrl: 'http://tonyhammack.com', // Domain of your website without pathPrefix.
   pathPrefix: '', // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription:
