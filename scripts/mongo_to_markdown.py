@@ -3,16 +3,17 @@ import shutil
 from pathlib import Path
 from typing import Any, Dict, List
 
-from jinja2 import Template
-
+import boto3
 import pymongo
 from dotenv import load_dotenv
+from jinja2 import Template
 from slugify import slugify
 from tqdm import tqdm
 
 TEMPLATE_PATH = Path("./template.txt")
 S3_BUCKET = "https://th-website.s3-website.us-east-2.amazonaws.com/"
 
+s3 = boto3.client("s3")
 
 def get_template(template_path: Path) -> Template:
     with open(template_path, "r") as f:
@@ -42,21 +43,32 @@ def extract_article(post: Dict[str, Any]):
     return (title, tags, date, body, image)
 
 
-def save_output(output: str, title: str, date: str):
-    base_path: Path = Path("../content") / date.split("-")[0]
-    base_path.mkdir(exist_ok=True)
+def save_output(output: str, title: str, date: str, download_images: bool = False) -> Path:
+    blog_path: Path = Path("../content") / (date + "-" + (slugify(title)))
 
-    blog_path = base_path / (slugify(title) + ".md")
-    if blog_path.is_file():
-        os.remove(blog_path)
+    try:
+        if blog_path.is_dir() and download_images:
+            shutil.rmtree(blog_path)
+    except Exception:
+        pass
 
-    with open(blog_path, "w") as f:
+    blog_path.mkdir(exist_ok=True, parents=True)
+    if (blog_path / "index.md").is_file():
+        os.remove(blog_path / "index.md")
+
+    with open(blog_path / "index.md", "w") as f:
         f.write(output)
 
-    return None
+    return blog_path
 
 
-def main(blogs: List[str]):
+def download_images_from_s3(blog_path: Path, cover: str):
+    image_dir = blog_path / "images"
+    image_dir.mkdir(exist_ok=True)
+    s3.download_file("th-website", cover.split("com")[1][1:], str(image_dir / cover.split("/")[-1]))
+
+
+def main(blogs: List[str], download_images: bool = False):
     config = get_config()
     client = pymongo.MongoClient(
         config["host"],
@@ -73,6 +85,10 @@ def main(blogs: List[str]):
 
         for post in posts:
             title, tags, date, body, image = extract_article(post)
+            image_file = image.split("/")[-1]
+            ext = image_file.split(".")[-1]
+            new_image_file = image_file.replace(ext, "webp")
+            cover_image = "./images/" + new_image_file
             template: Template = get_template(TEMPLATE_PATH)
             output = template.render(
                 title=title,
@@ -80,9 +96,12 @@ def main(blogs: List[str]):
                 date=date,
                 category=blog.title(),
                 body=body,
-                image=image,
+                cover=cover_image,
             )
-            save_output(output, title, date)
+            blog_path = save_output(output, title, date)
+            
+            if download_images:
+                download_images_from_s3(blog_path, cover=image)
 
     return None
 
@@ -91,6 +110,7 @@ if __name__ == "__main__":
     from argparse import ArgumentParser
 
     parser = ArgumentParser()
-    parser.add_argument("-b", "--blog", nargs="*", type=str, help="Blog in question to migrate")
-    args = parser.parse_args()
-    main(args.blog)
+    parser.add_argument("-b", "--blogs", nargs="*", type=str, help="Blog in question to migrate")
+    parser.add_argument("--download_images", action="store_true")
+    kwargs = vars(parser.parse_args())
+    main(**kwargs)
