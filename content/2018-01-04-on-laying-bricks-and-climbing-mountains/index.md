@@ -1,7 +1,7 @@
 ---
 date: 2018-01-04
 title: On Laying Bricks and Climbing Mountains
-cover: ./images/image-2018-01-04.webp
+cover: ./images/covers/image-2018-01-04.webp
 categories:
     - Personal
 tags:

@@ -1,7 +1,7 @@
 ---
 date: 2019-08-16
 title: Creating a SPA with Masonite and Angular (Part 1)
-cover: ./images/spa-1.webp
+cover: ./images/covers/spa-1.webp
 categories:
     - Tech
 tags:

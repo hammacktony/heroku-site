@@ -1,7 +1,7 @@
 ---
 date: 2018-11-01
 title: Sentiment Analysis and Comic Writers pt. 2
-cover: ./images/reddit.webp
+cover: ./images/covers/reddit.webp
 categories:
     - Tech
 tags:

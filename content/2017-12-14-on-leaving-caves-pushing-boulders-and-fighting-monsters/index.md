@@ -1,7 +1,7 @@
 ---
 date: 2017-12-14
 title: On Leaving Caves, Pushing Boulders, and Fighting Monsters
-cover: ./images/platoscave.webp
+cover: ./images/covers/platoscave.webp
 categories:
     - Personal
 tags:

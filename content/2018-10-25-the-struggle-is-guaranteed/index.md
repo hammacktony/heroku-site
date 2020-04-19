@@ -1,7 +1,7 @@
 ---
 date: 2018-10-25
 title: The Struggle is Guaranteed
-cover: ./images/1QBNozapo8JiuXeLhqQsHtg.webp
+cover: ./images/covers/1QBNozapo8JiuXeLhqQsHtg.webp
 categories:
     - Tech
 tags:

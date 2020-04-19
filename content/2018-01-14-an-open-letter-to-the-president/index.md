@@ -1,7 +1,7 @@
 ---
 date: 2018-01-14
 title: An Open Letter to the President
-cover: ./images/africa.webp
+cover: ./images/covers/africa.webp
 categories:
     - Personal
 tags:

@@ -1,7 +1,7 @@
 ---
 date: 2017-12-07
 title: The Crisis of Communication
-cover: ./images/photo-1492720026177-f0bfb64d9541.webp
+cover: ./images/covers/photo-1492720026177-f0bfb64d9541.webp
 categories:
     - Personal
 tags:

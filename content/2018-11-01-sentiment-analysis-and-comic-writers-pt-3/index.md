@@ -1,7 +1,7 @@
 ---
 date: 2018-11-01
 title: Sentiment Analysis and Comic Writers pt. 3
-cover: ./images/calculate_stats.webp
+cover: ./images/covers/calculate_stats.webp
 categories:
     - Tech
 tags:

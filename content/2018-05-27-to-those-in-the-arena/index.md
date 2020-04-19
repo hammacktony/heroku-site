@@ -1,7 +1,7 @@
 ---
 date: 2018-05-27
 title: To Those in the Arena...
-cover: ./images/gladiator.webp
+cover: ./images/covers/gladiator.webp
 categories:
     - Personal
 tags:

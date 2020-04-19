@@ -1,7 +1,7 @@
 ---
 date: 2018-02-25
 title: The Revolution Will Not Be Televised
-cover: ./images/revolution.webp
+cover: ./images/covers/revolution.webp
 categories:
     - Personal
 tags:

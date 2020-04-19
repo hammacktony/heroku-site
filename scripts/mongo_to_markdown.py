@@ -88,7 +88,7 @@ def main(blogs: List[str], download_images: bool = False):
             image_file = image.split("/")[-1]
             ext = image_file.split(".")[-1]
             new_image_file = image_file.replace(ext, "webp")
-            cover_image = "./images/" + new_image_file
+            cover_image = "./images/covers/" + new_image_file
             print(cover_image)
             template: Template = get_template(TEMPLATE_PATH)
             output = template.render(

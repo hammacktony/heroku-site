@@ -1,7 +1,7 @@
 ---
 date: 2017-12-19
 title: Why I am so in love Star Wars.....
-cover: ./images/star-wars-original-trilogy-1997-alamo.webp
+cover: ./images/covers/star-wars-original-trilogy-1997-alamo.webp
 categories:
     - Personal
 tags:
