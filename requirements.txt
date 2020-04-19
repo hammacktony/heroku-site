@@ -1,0 +1,7 @@
+webptools
+tqdm
+boto3
+pymongo
+jinja2
+slugify
+python-dotenv
