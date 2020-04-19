@@ -19,8 +19,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Yarn Install
       run: yarn install
-    - name: Install gatsby
-      run: yarn install gatsby
     - name: Production Build
       run: gatsby build
     - name: Deploy to S3
