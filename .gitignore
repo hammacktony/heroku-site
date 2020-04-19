@@ -126,3 +126,8 @@ public/
 
 # Backup
 content.backup
+
+# Banned image formats -> Force dev (me) to use webp
+*.jpg
+*.jpeg
+*.png
