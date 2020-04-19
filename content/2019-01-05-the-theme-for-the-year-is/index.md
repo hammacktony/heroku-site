@@ -1,7 +1,6 @@
 ---
 date: 2019-01-05
 title: The Theme for the year is....
-author: Tony Hammack
 cover: ./images/boxing-gloves-wallpaper-1.webp
 categories:
     - Personal

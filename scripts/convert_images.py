@@ -4,7 +4,7 @@ from pathlib import Path
 from tqdm import tqdm
 from webptools import webplib as webp
 
-CONTENT_DIRECTORY = Path("../content")
+CONTENT_DIRECTORY = Path("../content.backup")
 
 
 def main():
@@ -13,7 +13,7 @@ def main():
     for path in tqdm(paths):
         old_path = str(path)
         ext = old_path.split(".")[-1]
-        new_path = "./images/" + path.stem + ".webp"
+        new_path = "../static/images/" + path.stem + ".webp"
         webp.cwebp(old_path, new_path, "-q 80")
 
 

@@ -1,7 +1,6 @@
 ---
 date: 2019-08-16
 title: Writing a blog with Masonite pt. 1
-author: Tony Hammack
 cover: ./images/Screenshot-2018-10-28-22.42.16.webp
 categories:
     - Tech

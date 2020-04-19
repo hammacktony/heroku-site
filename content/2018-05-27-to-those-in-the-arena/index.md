@@ -1,7 +1,6 @@
 ---
 date: 2018-05-27
 title: To Those in the Arena...
-author: Tony Hammack
 cover: ./images/gladiator.webp
 categories:
     - Personal

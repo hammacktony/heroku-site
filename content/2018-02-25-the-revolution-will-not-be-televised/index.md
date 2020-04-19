@@ -1,7 +1,6 @@
 ---
 date: 2018-02-25
 title: The Revolution Will Not Be Televised
-author: Tony Hammack
 cover: ./images/revolution.webp
 categories:
     - Personal

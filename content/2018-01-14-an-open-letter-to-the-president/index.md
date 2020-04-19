@@ -1,7 +1,6 @@
 ---
 date: 2018-01-14
 title: An Open Letter to the President
-author: Tony Hammack
 cover: ./images/africa.webp
 categories:
     - Personal

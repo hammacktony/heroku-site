@@ -1,7 +1,6 @@
 ---
 date: 2018-01-04
 title: On Laying Bricks and Climbing Mountains
-author: Tony Hammack
 cover: ./images/image-2018-01-04.webp
 categories:
     - Personal

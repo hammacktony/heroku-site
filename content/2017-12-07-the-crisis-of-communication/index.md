@@ -1,7 +1,6 @@
 ---
 date: 2017-12-07
 title: The Crisis of Communication
-author: Tony Hammack
 cover: ./images/photo-1492720026177-f0bfb64d9541.webp
 categories:
     - Personal

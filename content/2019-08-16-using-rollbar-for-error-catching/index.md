@@ -1,7 +1,6 @@
 ---
 date: 2019-08-16
 title: Using Rollbar for Error Catching
-author: Tony Hammack
 cover: ./images/Screenshot-2018-10-29-11.15.23.webp
 categories:
     - Tech

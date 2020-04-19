@@ -1,7 +1,6 @@
 ---
 date: 2017-12-14
 title: On Leaving Caves, Pushing Boulders, and Fighting Monsters
-author: Tony Hammack
 cover: ./images/platoscave.webp
 categories:
     - Personal

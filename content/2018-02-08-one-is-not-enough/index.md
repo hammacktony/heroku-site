@@ -1,7 +1,6 @@
 ---
 date: 2018-02-08
 title: One Is Not Enough...
-author: Tony Hammack
 cover: ./images/120420110908-human-hero-black-power-norman-color-horizontal-large-gallery.webp
 categories:
     - Personal

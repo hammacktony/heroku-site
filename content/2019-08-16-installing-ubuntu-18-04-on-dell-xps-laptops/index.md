@@ -1,7 +1,6 @@
 ---
 date: 2019-08-16
 title: Installing Ubuntu 18.04 on Dell XPS Laptops
-author: Tony Hammack
 cover: ./images/Screenshot-from-2018-12-22-14-30-48.webp
 categories:
     - Tech

@@ -1,7 +1,6 @@
 ---
 date: 2018-10-25
 title: The Struggle is Guaranteed
-author: Tony Hammack
 cover: ./images/1QBNozapo8JiuXeLhqQsHtg.webp
 categories:
     - Tech

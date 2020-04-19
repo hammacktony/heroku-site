@@ -1,7 +1,6 @@
 ---
 date: 2018-10-30
 title: Sentiment Analysis and Comic Writers pt. 1
-author: Tony Hammack
 cover: ./images/twitter_upload.webp
 categories:
     - Tech

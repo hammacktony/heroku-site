@@ -1,7 +1,6 @@
 ---
 date: 2019-08-16
 title: Creating a SPA with Masonite and Angular (Part 1)
-author: Tony Hammack
 cover: ./images/spa-1.webp
 categories:
     - Tech

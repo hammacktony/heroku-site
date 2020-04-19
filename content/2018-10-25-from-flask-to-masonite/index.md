@@ -1,7 +1,6 @@
 ---
 date: 2018-10-25
 title: From Flask to Masonite
-author: Tony Hammack
 cover: ./images/BLOG_EN_1207_How-to-Make-Your-Computer-Crash-proof.webp
 categories:
     - Tech

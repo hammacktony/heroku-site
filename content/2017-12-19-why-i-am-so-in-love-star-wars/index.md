@@ -1,7 +1,6 @@
 ---
 date: 2017-12-19
 title: Why I am so in love Star Wars.....
-author: Tony Hammack
 cover: ./images/star-wars-original-trilogy-1997-alamo.webp
 categories:
     - Personal
