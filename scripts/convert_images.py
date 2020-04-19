@@ -1,13 +1,11 @@
+import os
+from pathlib import Path
+
+from tqdm import tqdm
 from webptools import webplib as webp
 
-import cv2
-import re
-
-from pathlib import Path
-from tqdm import tqdm
-import os
-
 CONTENT_DIRECTORY = Path("../content")
+
 
 def main():
     paths = [path for path in CONTENT_DIRECTORY.glob("*/images/*")]
