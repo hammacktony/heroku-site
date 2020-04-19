@@ -123,3 +123,6 @@ venv/
 
 # Built files
 public/
+
+# Backup
+content.backup
