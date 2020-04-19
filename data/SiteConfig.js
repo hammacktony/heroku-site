@@ -9,12 +9,12 @@ const config = {
     'A place for my thoughts...', // Website description used for RSS feeds/meta description tag.
   siteRss: '/rss.xml', // Path to the RSS file.
   siteFBAppID: '', // FB Application ID for using app insights
-  googleAnalyticsID: '', // GA tracking ID.
+  googleAnalyticsID: 'UA-128337997-1', // GA tracking ID.
   dateFromFormat: 'YYYY-MM-DD', // Date format used in the frontmatter.
   dateFormat: 'DD/MM/YYYY', // Date format for display.
   userName: 'Tony Hammack', // Username to display in the author segment.
   userEmail: 'hammack.tony@gmail.com', // Email used for RSS feed's author segment
-  userTwitter: '', // Optionally renders "Follow Me" in the Bio segment.
+  userTwitter: 'HammackTony', // Optionally renders "Follow Me" in the Bio segment.
   userGitHub: 'hammacktony', // Optionally renders "Follow Me" in the Bio segment.
   userLocation: 'St. Louis, MO', // User location to display in the author segment.
   userAvatar: './images/avatar.webp', // User avatar to display in the author segment.
