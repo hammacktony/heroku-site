@@ -17,12 +17,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Gatsby install
-      run: yarn add gatsby
     - name: Yarn Install
       run: yarn install
     - name: Production Build
-      run: gatsby build
+      run: yarn run build
     - name: Deploy to S3
       uses: jakejarvis/s3-sync-action@master
       with:
