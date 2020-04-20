@@ -3,17 +3,22 @@ import shutil
 from pathlib import Path
 from typing import Any, Dict, List
 
+from jinja2 import Template
+
 import boto3
 import pymongo
 from dotenv import load_dotenv
-from jinja2 import Template
 from slugify import slugify
 from tqdm import tqdm
 
+load_dotenv()
+
 TEMPLATE_PATH = Path("./template.txt")
-S3_BUCKET = "https://th-website.s3-website.us-east-2.amazonaws.com/"
+S3_BUCKET = os.getenv("S3_BUCKET", "")
+S3_BUCKET_URL = os.getenv("S3_BUCKET_URL", "")
 
 s3 = boto3.client("s3")
+
 
 def get_template(template_path: Path) -> Template:
     with open(template_path, "r") as f:
@@ -24,7 +29,6 @@ def get_template(template_path: Path) -> Template:
 def get_config():
     """ Get Mongo Config Information """
 
-    load_dotenv()
     return {
         "host": os.getenv("MONGO_HOST"),
         "port": int(os.getenv("MONGO_PORT")),
@@ -39,7 +43,7 @@ def extract_article(post: Dict[str, Any]):
     body = post["body"]
     tags = post["category"].split(",")
     date = post["updated_at"].split(" ")[0]
-    image = S3_BUCKET + post["image"]
+    image = S3_BUCKET_URL + post["image"]
     return (title, tags, date, body, image)
 
 
@@ -65,7 +69,7 @@ def save_output(output: str, title: str, date: str, download_images: bool = Fals
 def download_images_from_s3(blog_path: Path, cover: str):
     image_dir = blog_path / "images"
     image_dir.mkdir(exist_ok=True)
-    s3.download_file("th-website", cover.split("com")[1][1:], str(image_dir / cover.split("/")[-1]))
+    s3.download_file(S3_BUCKET, cover.split("com")[1][1:], str(image_dir / cover.split("/")[-1]))
 
 
 def main(blogs: List[str], download_images: bool = False):
@@ -100,7 +104,7 @@ def main(blogs: List[str], download_images: bool = False):
                 cover=cover_image,
             )
             blog_path = save_output(output, title, date)
-            
+
             if download_images:
                 download_images_from_s3(blog_path, cover=image)
 
