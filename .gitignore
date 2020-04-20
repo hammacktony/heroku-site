@@ -131,6 +131,3 @@ content.backup
 *.jpg
 *.jpeg
 *.png
-
-# Yarn Lockfiles
-yarn.lock
