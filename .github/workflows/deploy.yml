@@ -21,6 +21,8 @@ jobs:
           HUGO_VERSION: 0.73.0
       - name: Hugo Version
         run: $HOME/hugo version
+      - name: Build Directory
+        run: ls -l
       - name: Hugo Build
         run: $HOME/hugo --minify --themesDir ../themes
       - name: Deploy to S3
