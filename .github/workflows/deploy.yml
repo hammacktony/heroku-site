@@ -22,7 +22,7 @@ jobs:
       - name: Hugo Version
         run: $HOME/hugo version
       - name: Build Directory
-        run: ls -l
+        run: cd src
       - name: Hugo Build
         run: $HOME/hugo --minify --themesDir ../themes
       - name: Deploy to S3
