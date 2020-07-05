@@ -6,12 +6,8 @@ theme = "anatole"
 summarylength = 10
 enableEmoji = true
 
-# Enable Disqus
-#disqusShortname = ""
-
 # Google Analytics
-# TODO -> Turn this on after development
-#googleAnalytics = "UA-123-45"
+googleAnalytics = "UA-128337997-1"
 
 [params]
 title = "Tony Hammack"
@@ -54,7 +50,6 @@ url = "mailto:hammack.tony@gmail.com"
   identifier = "home"
   weight = 100
   url = "/"
-
 
   [[menu.main]]
   name = "About"

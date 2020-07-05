@@ -1,8 +1,8 @@
 clean:
 	rm -r public/
 build:
-	hugo --themesDir ../themes
+	hugo --minify --themesDir ../themes
 dev: clean
 	hugo server --themesDir ../themes
-deploy: clean build
+deploy: build
 	hugo deploy --themesDir ../themes
