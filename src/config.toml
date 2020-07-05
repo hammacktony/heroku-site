@@ -13,7 +13,7 @@ googleAnalytics = "UA-128337997-1"
 title = "Tony Hammack"
 author = "Tony Hammack"
 description = "A place for my thoughts..."
-profilePicture = "images/avatar.webp"
+profilePicture = "images/avatar.png"
 keywords = ""
 favicon = "favicons/"
 customCss = []
@@ -75,7 +75,7 @@ url = "mailto:hammack.tony@gmail.com"
 # By default, files are uploaded in an arbitrary order.
 # Files that match the regular expressions in the "Order" list
 # will be uploaded first, in the listed order.
-order = [".jpg$", ".gif$", ".webp$"]
+order = [".jpg$", ".gif$", ".png$"]
 
 
 [[deployment.targets]]

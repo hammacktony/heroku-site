@@ -5,7 +5,7 @@ categories = ["Personal"]
 tags = ["Opinion"]
 +++
 
-![cover](/images/120420110908-human-hero-black-power-norman-color-horizontal-large-gallery.webp "image")
+![cover](/images/120420110908-human-hero-black-power-norman-color-horizontal-large-gallery.png "image")
 
 February. The month best known for leap years and love. 
 

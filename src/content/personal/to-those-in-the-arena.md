@@ -5,7 +5,7 @@ categories = ["Personal"]
 tags = []
 +++
 
-![cover](/images/gladiator.webp "image")
+![cover](/images/gladiator.png "image")
 
 I have been asked a lot recently about whether I am or am not excited for having graduated with my Master's. I have to say that it has not been that exciting or enlightening. It has been a trying time. One where each day is a fight.
 

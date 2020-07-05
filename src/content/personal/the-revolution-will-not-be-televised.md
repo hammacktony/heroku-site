@@ -5,7 +5,7 @@ categories = ["Personal"]
 tags = ["Opinion"]
 +++
 
-![cover](/images/revolution.webp "image")
+![cover](/images/revolution.png "image")
 
 > You will not be able to stay home, brother	
 You will not be able to plug in, turn on and drop out	

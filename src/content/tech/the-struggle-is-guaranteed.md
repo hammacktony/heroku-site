@@ -5,7 +5,7 @@ categories = ["Tech"]
 tags = []
 +++
 
-![cover](/images/1QBNozapo8JiuXeLhqQsHtg.webp "image")
+![cover](/images/1QBNozapo8JiuXeLhqQsHtg.png "image")
 
 Last Thursday, I was rejected from Shipt...again. 
 

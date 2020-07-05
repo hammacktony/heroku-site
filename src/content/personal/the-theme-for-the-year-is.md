@@ -5,7 +5,7 @@ categories = ["Personal"]
 tags = []
 +++
 
-![cover](/images/boxing-gloves-wallpaper-1.webp "image")
+![cover](/images/boxing-gloves-wallpaper-1.png "image")
 
 2018 was...let's just say it was hard. 
 

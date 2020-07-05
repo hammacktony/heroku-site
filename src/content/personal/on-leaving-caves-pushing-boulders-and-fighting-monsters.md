@@ -5,7 +5,7 @@ categories = ["Personal"]
 tags = []
 +++
 
-![cover](/images/platoscave.webp "image")
+![cover](/images/platoscave.png "image")
 
 With all that has been going on recently, mainly prep for my Complex Analysis final (trust me, it is more scary than it sounds), I have not had to time to outline and plan the next installment of <em>Crisis</em>. Who knows when I will finish with that project. However, I still have a few ruminations I can share.
 

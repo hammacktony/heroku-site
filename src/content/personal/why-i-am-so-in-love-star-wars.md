@@ -5,7 +5,7 @@ categories = ["Personal"]
 tags = ["Geek"]
 +++
 
-![cover](/images/star-wars-original-trilogy-1997-alamo.webp "image")
+![cover](/images/star-wars-original-trilogy-1997-alamo.png "image")
 
 With the release of Star Wars Episode 8: The Last Jedi, I thought it would be appropriate to share why I love Star Wars so much and why I am so passionate about it.
 

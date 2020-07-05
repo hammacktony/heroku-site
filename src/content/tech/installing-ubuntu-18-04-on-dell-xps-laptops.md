@@ -5,7 +5,7 @@ categories = ["Tech"]
 tags = ["Ubuntu"]
 +++
 
-![cover](/images/Screenshot-from-2018-12-22-14-30-48.webp "image")
+![cover](/images/Screenshot-from-2018-12-22-14-30-48.png "image")
 
 About a month ago, I started a new job in St. Louis, Missouri. Upon arrival, I was given a Dell XPS 500 laptop for my dev machine. Immediately, I formatted the drive and installed Ubuntu 18.04. Well, I tried at least. 
 

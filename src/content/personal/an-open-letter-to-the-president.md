@@ -5,7 +5,7 @@ categories = ["Personal"]
 tags = ["Opinion"]
 +++
 
-![cover](/images/africa.webp "image")
+![cover](/images/africa.png "image")
 
 Mr. President,
 
