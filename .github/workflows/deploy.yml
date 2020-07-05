@@ -21,14 +21,10 @@ jobs:
           HUGO_VERSION: 0.73.0
       - name: Hugo Version
         run: $HOME/hugo version
-      - name: Build Directory
-        run: cd src
-      - name: Look around
-        run: ls -l
       - name: Hugo Build
-        run: $HOME/hugo --minify --themesDir ../themes
+        run: cd src; $HOME/hugo --minify --themesDir ../themes
       - name: Deploy to S3
-        run: $HOME/hugo -v deploy  --themesDir ../themes --maxDeletes -1
+        run: cd src; $HOME/hugo -v deploy  --themesDir ../themes --maxDeletes -1
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
