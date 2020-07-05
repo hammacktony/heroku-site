@@ -47,20 +47,10 @@ def extract_article(post: Dict[str, Any]):
     return (title, tags, date, body, image)
 
 
-def save_output(output: str, title: str, date: str, download_images: bool = False) -> Path:
-    blog_path: Path = Path("../content") / (date + "-" + (slugify(title)))
+def save_output(output: str, title: str, date: str, blog: str) -> Path:
+    blog_path: Path = Path("../content") / blog / (slugify(title) + ".md")
 
-    try:
-        if blog_path.is_dir() and download_images:
-            shutil.rmtree(blog_path)
-    except Exception:
-        pass
-
-    blog_path.mkdir(exist_ok=True, parents=True)
-    if (blog_path / "index.md").is_file():
-        os.remove(blog_path / "index.md")
-
-    with open(blog_path / "index.md", "w") as f:
+    with open(blog_path, "w") as f:
         f.write(output)
 
     return blog_path
@@ -82,6 +72,7 @@ def main(blogs: List[str], download_images: bool = False):
         authSource=config["db"],
     )
     db = client[config["db"]]
+    # print(db.list_collection_names())
 
     for blog in blogs:
         posts: List[Dict[str, Any]] = [post for post in db[blog].find().sort("updated_at", -1)]
@@ -92,8 +83,8 @@ def main(blogs: List[str], download_images: bool = False):
             image_file = image.split("/")[-1]
             ext = image_file.split(".")[-1]
             new_image_file = image_file.replace(ext, "webp")
-            cover_image = "./images/covers/" + new_image_file
-            print(cover_image)
+            cover_image = f"/images/{blog}/" + new_image_file
+
             template: Template = get_template(TEMPLATE_PATH)
             output = template.render(
                 title=title,
@@ -103,10 +94,10 @@ def main(blogs: List[str], download_images: bool = False):
                 body=body,
                 cover=cover_image,
             )
-            blog_path = save_output(output, title, date)
+            blog_path = save_output(output, title, date, blog)
 
-            if download_images:
-                download_images_from_s3(blog_path, cover=image)
+            # if download_images:
+            #     download_images_from_s3(blog_path, blog=blog, cover=image)
 
     return None
 

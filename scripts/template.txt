@@ -1,13 +1,14 @@
----
-date: {{ date }}
-title: {{ title }}
-cover: {{ cover }}
-categories:
-    - {{ category }}
-tags:
++++
+date = "{{ date }}"
+title = "{{ title }}"
+categories = ["{{ category }}"]
+tags = [
 {% for tag in tags %}
-    - {{ tag }}
+    "{{ tag }}", 
 {% endfor %}
----
+]
++++
+
+![cover]({{ cover }} "image")
 
 {{ body }}

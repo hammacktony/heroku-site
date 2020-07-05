@@ -131,3 +131,6 @@ content.backup
 *.jpg
 *.jpeg
 *.png
+
+# Local files
+.DS_Store

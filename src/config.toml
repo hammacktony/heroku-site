@@ -1,0 +1,104 @@
+baseURL = "/"
+languageCode = "en"
+DefaultContentLanguage = "en"
+title = "Website of Tony Hammack"
+theme = "anatole"
+summarylength = 10
+enableEmoji = true
+
+# Enable Disqus
+#disqusShortname = ""
+
+# Google Analytics
+# TODO -> Turn this on after development
+#googleAnalytics = "UA-123-45"
+
+[params]
+title = "Tony Hammack"
+author = "Tony Hammack"
+description = "A place for my thoughts..."
+profilePicture = "images/avatar.webp"
+keywords = ""
+favicon = "favicons/"
+customCss = []
+mainSections = ["tech", "personal"]
+images = []
+
+## Math settings
+[params.math]
+enable = false  # options: true, false. Enable math support globally, default: false. You can always enable math on per page.
+use = "katex"  # options: "katex", "mathjax". default is "katex".
+
+## Social links
+[[params.socialIcons]]
+icon = "fa-linkedin"
+title = "Linkedin"
+url = "https://www.linkedin.com/in/hammack-tony/"
+
+[[params.socialIcons]]
+icon = "fa-github"
+title = "GitHub"
+url = "https://github.com/hammacktony"
+
+[[params.socialIcons]]
+icon = "fa-envelope"
+title = "e-mail"
+url = "mailto:hammack.tony@gmail.com"
+
+## Menu items
+
+[menu]
+
+  [[menu.main]]
+  name = "Home"
+  identifier = "home"
+  weight = 100
+  url = "/"
+
+
+  [[menu.main]]
+  name = "About"
+  weight = 200
+  identifier = "about"
+  url = "/about"
+
+  [[menu.main]]
+  name = "Personal"
+  weight = 300
+  identifier = "personal"
+  url = "/personal/"
+  
+  [[menu.main]]
+  name = "Tech"
+  weight = 400
+  identifier = "tech"
+  url = "/tech/"
+
+## Deployment stuff
+[deployment]
+
+# By default, files are uploaded in an arbitrary order.
+# Files that match the regular expressions in the "Order" list
+# will be uploaded first, in the listed order.
+order = [".jpg$", ".gif$", ".webp$"]
+
+
+[[deployment.targets]]
+# An arbitrary name for this target.
+name = "s3"
+url = "s3://th-website-test?region=us-east-2"
+
+[[deployment.matchers]]
+#  Cache static assets for 1 year.
+pattern = "^.+\\.(js|css|svg|ttf)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = true
+
+[[deployment.matchers]]
+pattern = "^.+\\.(png|jpg|webp)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = false
+
+[[deployment.matchers]]
+pattern = "^.+\\.(html|xml|json)$"
+gzip = true
