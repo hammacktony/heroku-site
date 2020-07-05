@@ -81,7 +81,7 @@ order = [".jpg$", ".gif$", ".webp$"]
 [[deployment.targets]]
 # An arbitrary name for this target.
 name = "s3"
-url = "s3://th-website-test?region=us-east-2"
+url = "s3://www.tonyhammack.com?region=us-east-2"
 
 [[deployment.matchers]]
 #  Cache static assets for 1 year.
