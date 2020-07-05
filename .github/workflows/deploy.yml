@@ -19,6 +19,8 @@ jobs:
           mv hugo $HOME/hugo
         env:
           HUGO_VERSION: 0.73.0
+      - name: Hugo Version
+        run: $HOME/hugo version
       - name: Hugo Build
         run: $HOME/hugo --minify --themesDir ../themes
       - name: Deploy to S3
